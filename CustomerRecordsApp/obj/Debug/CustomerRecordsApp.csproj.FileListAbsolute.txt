@@ -1,0 +1,15 @@
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.csprojAssemblyReference.cache
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.Properties.Resources.resources
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.csproj.GenerateResource.cache
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.csproj.CoreCompileInputs.cache
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\bin\Debug\CustomerRecordsApp.exe.config
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\bin\Debug\CustomerRecordsApp.exe
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\bin\Debug\CustomerRecordsApp.pdb
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\bin\Debug\DatabaseAccess.dll
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\bin\Debug\DatabaseAccess.pdb
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.csproj.CopyComplete
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.exe
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.pdb
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.formCustomerView.resources
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.formReferralView.resources
+C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.formServiceView.resources
