@@ -80,7 +80,7 @@ namespace CustomerRecordsApp
 
         private void DgvCustomerData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
     }
 

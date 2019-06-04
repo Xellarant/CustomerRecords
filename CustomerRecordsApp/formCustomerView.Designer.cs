@@ -49,7 +49,7 @@
             this.panel1.Controls.Add(this.dgvCustomerData);
             this.panel1.Location = new System.Drawing.Point(12, 42);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(889, 243);
+            this.panel1.Size = new System.Drawing.Size(889, 299);
             this.panel1.TabIndex = 0;
             // 
             // dgvCustomerData
@@ -57,8 +57,10 @@
             this.dgvCustomerData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomerData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomerData.Location = new System.Drawing.Point(0, 0);
+            this.dgvCustomerData.MultiSelect = false;
             this.dgvCustomerData.Name = "dgvCustomerData";
-            this.dgvCustomerData.Size = new System.Drawing.Size(885, 239);
+            this.dgvCustomerData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCustomerData.Size = new System.Drawing.Size(885, 295);
             this.dgvCustomerData.TabIndex = 0;
             this.dgvCustomerData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerData_CellDoubleClick);
             // 
@@ -68,7 +70,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCustomerRecords.AutoSize = true;
             this.lblCustomerRecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomerRecords.Location = new System.Drawing.Point(384, 9);
+            this.lblCustomerRecords.Location = new System.Drawing.Point(371, 9);
             this.lblCustomerRecords.Name = "lblCustomerRecords";
             this.lblCustomerRecords.Size = new System.Drawing.Size(183, 24);
             this.lblCustomerRecords.TabIndex = 1;
@@ -89,7 +91,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.btAdd);
             this.panel2.Controls.Add(this.btUpdate);
-            this.panel2.Location = new System.Drawing.Point(650, 297);
+            this.panel2.Location = new System.Drawing.Point(650, 353);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(248, 34);
             this.panel2.TabIndex = 3;
@@ -117,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 344);
+            this.ClientSize = new System.Drawing.Size(913, 400);
             this.Controls.Add(this.lblDoubleClick);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lblCustomerRecords);

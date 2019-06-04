@@ -52,11 +52,11 @@
     <Compile Include="formCustomerView.Designer.cs">
       <DependentUpon>formCustomerView.cs</DependentUpon>
     </Compile>
-    <Compile Include="formReferralView.cs">
+    <Compile Include="formCustomerDetailView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formReferralView.Designer.cs">
-      <DependentUpon>formReferralView.cs</DependentUpon>
+    <Compile Include="formCustomerDetailView.Designer.cs">
+      <DependentUpon>formCustomerDetailView.cs</DependentUpon>
     </Compile>
     <Compile Include="formServiceView.cs">
       <SubType>Form</SubType>
@@ -69,8 +69,8 @@
     <EmbeddedResource Include="formCustomerView.resx">
       <DependentUpon>formCustomerView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formReferralView.resx">
-      <DependentUpon>formReferralView.cs</DependentUpon>
+    <EmbeddedResource Include="formCustomerDetailView.resx">
+      <DependentUpon>formCustomerDetailView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formServiceView.resx">
       <DependentUpon>formServiceView.cs</DependentUpon>
