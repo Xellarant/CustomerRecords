@@ -63,6 +63,7 @@
             this.dgvCustomerData.Size = new System.Drawing.Size(885, 295);
             this.dgvCustomerData.TabIndex = 0;
             this.dgvCustomerData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerData_CellDoubleClick);
+            this.dgvCustomerData.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerData_CellLeave);
             // 
             // lblCustomerRecords
             // 
