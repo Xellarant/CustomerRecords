@@ -53,7 +53,7 @@ namespace CustomerRecordsApp
 
         public void getCustomers(DataTable dt)
         {
-            CustomerRecords.getCustomersTable(dt);
+            Customer.getCustomersTable(dt);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -80,6 +80,17 @@ namespace CustomerRecordsApp
 
         private void DgvCustomerData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            int CustomerID;
+            if (Int32.TryParse(dgvCustomerData.SelectedRows[0].Cells["Customer_ID"].Value.ToString(), out CustomerID))
+            {
+                formCustomerDetailView detailView = new formCustomerDetailView(CustomerID);
+                detailView.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Error: Couldn't find the CustomerID for the selected record.", 
+                                "CustomerID error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             
         }
     }

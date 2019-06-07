@@ -78,6 +78,7 @@
             // 
             // btUpdate
             // 
+            this.btUpdate.Enabled = false;
             this.btUpdate.Location = new System.Drawing.Point(134, 8);
             this.btUpdate.Name = "btUpdate";
             this.btUpdate.Size = new System.Drawing.Size(111, 23);
@@ -98,6 +99,7 @@
             // 
             // btAdd
             // 
+            this.btAdd.Enabled = false;
             this.btAdd.Location = new System.Drawing.Point(11, 8);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(112, 23);
@@ -108,8 +110,9 @@
             // 
             // lblDoubleClick
             // 
+            this.lblDoubleClick.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDoubleClick.AutoSize = true;
-            this.lblDoubleClick.Location = new System.Drawing.Point(12, 493);
+            this.lblDoubleClick.Location = new System.Drawing.Point(12, 366);
             this.lblDoubleClick.Name = "lblDoubleClick";
             this.lblDoubleClick.Size = new System.Drawing.Size(140, 13);
             this.lblDoubleClick.TabIndex = 4;
