@@ -64,6 +64,12 @@
     <Compile Include="formServiceView.Designer.cs">
       <DependentUpon>formServiceView.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputForms\NewNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputForms\NewNotes.Designer.cs">
+      <DependentUpon>NewNotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formCustomerView.resx">
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formServiceView.resx">
       <DependentUpon>formServiceView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputForms\NewNotes.resx">
+      <DependentUpon>NewNotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btSave = new System.Windows.Forms.Button();
+            this.btAddService = new System.Windows.Forms.Button();
+            this.btSaveService = new System.Windows.Forms.Button();
             this.lblCustomerServices = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvCustomerServices = new System.Windows.Forms.DataGridView();
@@ -41,23 +41,23 @@
             this.dgvCustomerOutcomes = new System.Windows.Forms.DataGridView();
             this.lblCustomerOutcomes = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btAddOutcome = new System.Windows.Forms.Button();
+            this.btSaveOutcome = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpProgressNotes = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvProgressNotes = new System.Windows.Forms.DataGridView();
             this.lblProgressNotes = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btAddNotes = new System.Windows.Forms.Button();
+            this.btSaveNotes = new System.Windows.Forms.Button();
             this.tpReferrals = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dgvCustomerReferrals = new System.Windows.Forms.DataGridView();
             this.lblReferrals = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btAddReferral = new System.Windows.Forms.Button();
+            this.btSaveReferral = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -86,36 +86,36 @@
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.btSave);
+            this.panel2.Controls.Add(this.btAddService);
+            this.panel2.Controls.Add(this.btSaveService);
             this.panel2.Location = new System.Drawing.Point(548, 162);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(217, 40);
             this.panel2.TabIndex = 1;
             // 
-            // button2
+            // btAddService
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btAddService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(21, 10);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btAddService.Location = new System.Drawing.Point(21, 10);
+            this.btAddService.Name = "btAddService";
+            this.btAddService.Size = new System.Drawing.Size(95, 23);
+            this.btAddService.TabIndex = 1;
+            this.btAddService.Text = "Add";
+            this.btAddService.UseVisualStyleBackColor = true;
             // 
-            // btSave
+            // btSaveService
             // 
-            this.btSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btSaveService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btSave.Location = new System.Drawing.Point(122, 10);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(92, 23);
-            this.btSave.TabIndex = 0;
-            this.btSave.Text = "Save";
-            this.btSave.UseVisualStyleBackColor = true;
+            this.btSaveService.Location = new System.Drawing.Point(122, 10);
+            this.btSaveService.Name = "btSaveService";
+            this.btSaveService.Size = new System.Drawing.Size(92, 23);
+            this.btSaveService.TabIndex = 0;
+            this.btSaveService.Text = "Save";
+            this.btSaveService.UseVisualStyleBackColor = true;
             // 
             // lblCustomerServices
             // 
@@ -168,7 +168,7 @@
             this.tpServices.Location = new System.Drawing.Point(4, 22);
             this.tpServices.Name = "tpServices";
             this.tpServices.Padding = new System.Windows.Forms.Padding(3);
-            this.tpServices.Size = new System.Drawing.Size(768, 202);
+            this.tpServices.Size = new System.Drawing.Size(765, 202);
             this.tpServices.TabIndex = 0;
             this.tpServices.Text = "Services";
             this.tpServices.UseVisualStyleBackColor = true;
@@ -220,38 +220,38 @@
             // panel5
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.Controls.Add(this.button4);
-            this.panel5.Controls.Add(this.button5);
+            this.panel5.Controls.Add(this.btAddOutcome);
+            this.panel5.Controls.Add(this.btSaveOutcome);
             this.panel5.Location = new System.Drawing.Point(545, 161);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(217, 40);
             this.panel5.TabIndex = 8;
             // 
-            // button4
+            // btAddOutcome
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btAddOutcome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(21, 10);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 23);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btAddOutcome.Enabled = false;
+            this.btAddOutcome.Location = new System.Drawing.Point(21, 10);
+            this.btAddOutcome.Name = "btAddOutcome";
+            this.btAddOutcome.Size = new System.Drawing.Size(95, 23);
+            this.btAddOutcome.TabIndex = 1;
+            this.btAddOutcome.Text = "Add";
+            this.btAddOutcome.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btSaveOutcome
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btSaveOutcome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Enabled = false;
-            this.button5.Location = new System.Drawing.Point(122, 10);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(92, 23);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Save";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btSaveOutcome.Enabled = false;
+            this.btSaveOutcome.Location = new System.Drawing.Point(122, 10);
+            this.btSaveOutcome.Name = "btSaveOutcome";
+            this.btSaveOutcome.Size = new System.Drawing.Size(92, 23);
+            this.btSaveOutcome.TabIndex = 0;
+            this.btSaveOutcome.Text = "Save";
+            this.btSaveOutcome.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -273,7 +273,7 @@
             this.tpProgressNotes.Location = new System.Drawing.Point(4, 22);
             this.tpProgressNotes.Name = "tpProgressNotes";
             this.tpProgressNotes.Padding = new System.Windows.Forms.Padding(3);
-            this.tpProgressNotes.Size = new System.Drawing.Size(768, 191);
+            this.tpProgressNotes.Size = new System.Drawing.Size(765, 191);
             this.tpProgressNotes.TabIndex = 0;
             this.tpProgressNotes.Text = "Notes";
             this.tpProgressNotes.UseVisualStyleBackColor = true;
@@ -286,7 +286,7 @@
             this.panel3.Controls.Add(this.dgvProgressNotes);
             this.panel3.Location = new System.Drawing.Point(3, 27);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(762, 128);
+            this.panel3.Size = new System.Drawing.Size(759, 128);
             this.panel3.TabIndex = 6;
             // 
             // dgvProgressNotes
@@ -295,7 +295,7 @@
             this.dgvProgressNotes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProgressNotes.Location = new System.Drawing.Point(0, 0);
             this.dgvProgressNotes.Name = "dgvProgressNotes";
-            this.dgvProgressNotes.Size = new System.Drawing.Size(762, 128);
+            this.dgvProgressNotes.Size = new System.Drawing.Size(759, 128);
             this.dgvProgressNotes.TabIndex = 0;
             // 
             // lblProgressNotes
@@ -312,36 +312,37 @@
             // panel6
             // 
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.Controls.Add(this.button1);
-            this.panel6.Controls.Add(this.button3);
-            this.panel6.Location = new System.Drawing.Point(548, 151);
+            this.panel6.Controls.Add(this.btAddNotes);
+            this.panel6.Controls.Add(this.btSaveNotes);
+            this.panel6.Location = new System.Drawing.Point(545, 151);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(217, 40);
             this.panel6.TabIndex = 1;
             // 
-            // button1
+            // btAddNotes
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btAddNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(21, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btAddNotes.Location = new System.Drawing.Point(21, 10);
+            this.btAddNotes.Name = "btAddNotes";
+            this.btAddNotes.Size = new System.Drawing.Size(95, 23);
+            this.btAddNotes.TabIndex = 1;
+            this.btAddNotes.Text = "Add";
+            this.btAddNotes.UseVisualStyleBackColor = true;
+            this.btAddNotes.Click += new System.EventHandler(this.BtAddNotes_Click);
             // 
-            // button3
+            // btSaveNotes
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btSaveNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(122, 10);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(92, 23);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Save";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btSaveNotes.Location = new System.Drawing.Point(122, 10);
+            this.btSaveNotes.Name = "btSaveNotes";
+            this.btSaveNotes.Size = new System.Drawing.Size(92, 23);
+            this.btSaveNotes.TabIndex = 0;
+            this.btSaveNotes.Text = "Save";
+            this.btSaveNotes.UseVisualStyleBackColor = true;
             // 
             // tpReferrals
             // 
@@ -390,38 +391,38 @@
             // panel8
             // 
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel8.Controls.Add(this.button6);
-            this.panel8.Controls.Add(this.button7);
+            this.panel8.Controls.Add(this.btAddReferral);
+            this.panel8.Controls.Add(this.btSaveReferral);
             this.panel8.Location = new System.Drawing.Point(545, 151);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(217, 40);
             this.panel8.TabIndex = 8;
             // 
-            // button6
+            // btAddReferral
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btAddReferral.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Enabled = false;
-            this.button6.Location = new System.Drawing.Point(21, 10);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(95, 23);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "Add";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btAddReferral.Enabled = false;
+            this.btAddReferral.Location = new System.Drawing.Point(21, 10);
+            this.btAddReferral.Name = "btAddReferral";
+            this.btAddReferral.Size = new System.Drawing.Size(95, 23);
+            this.btAddReferral.TabIndex = 1;
+            this.btAddReferral.Text = "Add";
+            this.btAddReferral.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btSaveReferral
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btSaveReferral.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.Enabled = false;
-            this.button7.Location = new System.Drawing.Point(122, 10);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(92, 23);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "Save";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btSaveReferral.Enabled = false;
+            this.btSaveReferral.Location = new System.Drawing.Point(122, 10);
+            this.btSaveReferral.Name = "btSaveReferral";
+            this.btSaveReferral.Size = new System.Drawing.Size(92, 23);
+            this.btSaveReferral.TabIndex = 0;
+            this.btSaveReferral.Text = "Save";
+            this.btSaveReferral.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
@@ -480,8 +481,8 @@
 
         #endregion
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.Button btAddService;
+        private System.Windows.Forms.Button btSaveService;
         private System.Windows.Forms.Label lblCustomerServices;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvCustomerServices;
@@ -492,23 +493,23 @@
         private System.Windows.Forms.DataGridView dgvCustomerOutcomes;
         private System.Windows.Forms.Label lblCustomerOutcomes;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btAddOutcome;
+        private System.Windows.Forms.Button btSaveOutcome;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpProgressNotes;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgvProgressNotes;
         private System.Windows.Forms.Label lblProgressNotes;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btAddNotes;
+        private System.Windows.Forms.Button btSaveNotes;
         private System.Windows.Forms.TabPage tpReferrals;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridView dgvCustomerReferrals;
         private System.Windows.Forms.Label lblReferrals;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btAddReferral;
+        private System.Windows.Forms.Button btSaveReferral;
         private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }

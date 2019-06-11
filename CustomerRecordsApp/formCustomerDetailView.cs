@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CustomerRecordsApp.InputForms;
 using DatabaseAccess;
 
 namespace CustomerRecordsApp
@@ -20,6 +21,11 @@ namespace CustomerRecordsApp
             customerID = CustomerID;
             Initialize();
             
+        }
+
+        private void BtAddNotes_Click(object sender, EventArgs e)
+        {
+            NewNotes notesView = new NewNotes(CustomerID);
         }
 
         private void Initialize()
