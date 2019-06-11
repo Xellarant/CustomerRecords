@@ -30,22 +30,22 @@ namespace CustomerRecordsApp
         {
             InitializeComponent();
 
-            try
-            {
-                using (conn = new SqlConnection(ShowMeDB.connString))
-                {
-                    //access SQL Server and run your command
-                    conn.Open();
-                    Console.WriteLine("Connection Open.");
-                }
-            }
-            catch (Exception ex)
-            {
-                //display error message
-                Console.WriteLine("Exception: " + ex.Message);
-                MessageBox.Show($"Error! Could not open a connection to the database!\n\nException: {ex}", 
-                                "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //try
+            //{
+            //    using (conn = new SqlConnection(ShowMeDB.connString))
+            //    {
+            //        //access SQL Server and run your command
+            //        conn.Open();
+            //        Console.WriteLine("Connection Open.");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    //display error message
+            //    Console.WriteLine("Exception: " + ex.Message);
+            //    MessageBox.Show($"Error! Could not open a connection to the database!\n\nException: {ex}", 
+            //                    "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
             
         }
 
@@ -56,19 +56,20 @@ namespace CustomerRecordsApp
 
         public void getCustomers(DataTable dt)
         {
+            dgvCustomerData.DataSource = null;
             Customer.getCustomersTable(dt);
+            dgvCustomerData.DataSource = dt;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            getCustomers(customerTable);
-            dgvCustomerData.DataSource = customerTable;
+            getCustomers(customerTable);            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            conn.Close();
-            Console.WriteLine("Connection closed.");
+            //conn.Close();
+            //Console.WriteLine("Connection closed.");
         }
 
         private void BtAdd_Click(object sender, EventArgs e)
@@ -82,8 +83,8 @@ namespace CustomerRecordsApp
             {
                 Customer.updateCustomer(customer);
             }
-            modifiedCustomers.Clear();
-        }
+            ClearDirtyRows();
+        }        
 
         private void DgvCustomerData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -106,11 +107,18 @@ namespace CustomerRecordsApp
             DataGridView gridView = sender as DataGridView;
             if (gridView.IsCurrentCellDirty)
             {
+                gridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
                 DataRowView currentRowView = (DataRowView)gridView.Rows[e.RowIndex].DataBoundItem;
                 DataRow currentRow = currentRowView.Row;
                 Customer currentCustomer = new Customer();
                 CustomerRowToObject(currentRow, currentCustomer);
-                modifiedCustomers.Add(currentCustomer);
+                Customer match = modifiedCustomers.Where(cust => cust.Customer_ID == currentCustomer.Customer_ID).FirstOrDefault();
+                if (modifiedCustomers.Contains(match)) // if we captured this customer before, delete the previous snapshot.
+                {
+                    modifiedCustomers.Remove(match);
+                }
+                modifiedCustomers.Add(currentCustomer); // add the new changes to the queue regardless.
+                
                 gridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Aqua;
                 if (!btUpdate.Enabled)
                 {
@@ -143,6 +151,7 @@ namespace CustomerRecordsApp
                 }
                 property.SetValue(customer, rowVal);
             }
+            // The above code should be able to utilize reflection to avoid all the stuff below.
 
             //customer.Customer_ID = (int?)row["Customer_ID"];
             //customer.FirstName = row["FirstName"].ToString();
@@ -155,6 +164,22 @@ namespace CustomerRecordsApp
             //customer.StateName = row["StateName"].ToString();
             //customer.Zip = row["Zip"].ToString();
             //customer.ISIS_ID = (int?)row["ISIS_ID"];
+        }
+        private void ClearDirtyRows()
+        {
+            foreach (Customer cust in modifiedCustomers)
+            {
+                DataGridViewRow row = dgvCustomerData.Rows.Cast<DataGridViewRow>() // find the matching gridview row for a given Customer_ID.
+                                                .Where(r => r.Cells["Customer_ID"].Value as int? == cust.Customer_ID)
+                                                .First();
+                row.DefaultCellStyle.BackColor = DefaultBackColor;
+            }
+            modifiedCustomers.Clear();
+        }
+
+        private void BtRefresh_Click(object sender, EventArgs e)
+        {
+            getCustomers(customerTable);
         }
     }    
 }

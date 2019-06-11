@@ -35,6 +35,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btAdd = new System.Windows.Forms.Button();
             this.lblDoubleClick = new System.Windows.Forms.Label();
+            this.btRefresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerData)).BeginInit();
             this.panel2.SuspendLayout();
@@ -47,9 +48,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.dgvCustomerData);
-            this.panel1.Location = new System.Drawing.Point(12, 42);
+            this.panel1.Location = new System.Drawing.Point(12, 58);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(889, 299);
+            this.panel1.Size = new System.Drawing.Size(889, 283);
             this.panel1.TabIndex = 0;
             // 
             // dgvCustomerData
@@ -60,7 +61,7 @@
             this.dgvCustomerData.MultiSelect = false;
             this.dgvCustomerData.Name = "dgvCustomerData";
             this.dgvCustomerData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCustomerData.Size = new System.Drawing.Size(885, 295);
+            this.dgvCustomerData.Size = new System.Drawing.Size(885, 279);
             this.dgvCustomerData.TabIndex = 0;
             this.dgvCustomerData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerData_CellDoubleClick);
             this.dgvCustomerData.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerData_CellLeave);
@@ -119,11 +120,22 @@
             this.lblDoubleClick.TabIndex = 4;
             this.lblDoubleClick.Text = "Double Click to View Details";
             // 
+            // btRefresh
+            // 
+            this.btRefresh.Location = new System.Drawing.Point(12, 29);
+            this.btRefresh.Name = "btRefresh";
+            this.btRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btRefresh.TabIndex = 5;
+            this.btRefresh.Text = "Refresh";
+            this.btRefresh.UseVisualStyleBackColor = true;
+            this.btRefresh.Click += new System.EventHandler(this.BtRefresh_Click);
+            // 
             // formCustomerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 400);
+            this.Controls.Add(this.btRefresh);
             this.Controls.Add(this.lblDoubleClick);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lblCustomerRecords);
@@ -149,6 +161,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.Label lblDoubleClick;
+        private System.Windows.Forms.Button btRefresh;
     }
 }
 
