@@ -28,3 +28,4 @@ C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.exe
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.pdb
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.formCustomerDetailView.resources
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.InputForms.NewNotes.resources

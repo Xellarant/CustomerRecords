@@ -36,6 +36,7 @@
             this.btAdd = new System.Windows.Forms.Button();
             this.lblDoubleClick = new System.Windows.Forms.Label();
             this.btRefresh = new System.Windows.Forms.Button();
+            this.btViewAlerts = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerData)).BeginInit();
             this.panel2.SuspendLayout();
@@ -55,6 +56,8 @@
             // 
             // dgvCustomerData
             // 
+            this.dgvCustomerData.AllowUserToAddRows = false;
+            this.dgvCustomerData.AllowUserToDeleteRows = false;
             this.dgvCustomerData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomerData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomerData.Location = new System.Drawing.Point(0, 0);
@@ -65,6 +68,7 @@
             this.dgvCustomerData.TabIndex = 0;
             this.dgvCustomerData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerData_CellDoubleClick);
             this.dgvCustomerData.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerData_CellLeave);
+            this.dgvCustomerData.SelectionChanged += new System.EventHandler(this.DgvCustomerData_SelectionChanged);
             // 
             // lblCustomerRecords
             // 
@@ -130,11 +134,22 @@
             this.btRefresh.UseVisualStyleBackColor = true;
             this.btRefresh.Click += new System.EventHandler(this.BtRefresh_Click);
             // 
+            // btViewAlerts
+            // 
+            this.btViewAlerts.Enabled = false;
+            this.btViewAlerts.Location = new System.Drawing.Point(784, 29);
+            this.btViewAlerts.Name = "btViewAlerts";
+            this.btViewAlerts.Size = new System.Drawing.Size(117, 23);
+            this.btViewAlerts.TabIndex = 6;
+            this.btViewAlerts.Text = "View Alerts";
+            this.btViewAlerts.UseVisualStyleBackColor = true;
+            // 
             // formCustomerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 400);
+            this.Controls.Add(this.btViewAlerts);
             this.Controls.Add(this.btRefresh);
             this.Controls.Add(this.lblDoubleClick);
             this.Controls.Add(this.panel2);
@@ -162,6 +177,7 @@
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.Label lblDoubleClick;
         private System.Windows.Forms.Button btRefresh;
+        private System.Windows.Forms.Button btViewAlerts;
     }
 }
 

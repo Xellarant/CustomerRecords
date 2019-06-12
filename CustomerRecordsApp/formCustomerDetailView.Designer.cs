@@ -46,7 +46,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpProgressNotes = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dgvProgressNotes = new System.Windows.Forms.DataGridView();
+            this.dgvCustomerNotes = new System.Windows.Forms.DataGridView();
             this.lblProgressNotes = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btAddNotes = new System.Windows.Forms.Button();
@@ -71,7 +71,7 @@
             this.tabControl1.SuspendLayout();
             this.tpProgressNotes.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProgressNotes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerNotes)).BeginInit();
             this.panel6.SuspendLayout();
             this.tpReferrals.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -141,9 +141,12 @@
             // 
             // dgvCustomerServices
             // 
+            this.dgvCustomerServices.AllowUserToAddRows = false;
+            this.dgvCustomerServices.AllowUserToDeleteRows = false;
             this.dgvCustomerServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomerServices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomerServices.Location = new System.Drawing.Point(0, 0);
+            this.dgvCustomerServices.MultiSelect = false;
             this.dgvCustomerServices.Name = "dgvCustomerServices";
             this.dgvCustomerServices.Size = new System.Drawing.Size(762, 136);
             this.dgvCustomerServices.TabIndex = 0;
@@ -199,9 +202,12 @@
             // 
             // dgvCustomerOutcomes
             // 
+            this.dgvCustomerOutcomes.AllowUserToAddRows = false;
+            this.dgvCustomerOutcomes.AllowUserToDeleteRows = false;
             this.dgvCustomerOutcomes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomerOutcomes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomerOutcomes.Location = new System.Drawing.Point(0, 0);
+            this.dgvCustomerOutcomes.MultiSelect = false;
             this.dgvCustomerOutcomes.Name = "dgvCustomerOutcomes";
             this.dgvCustomerOutcomes.Size = new System.Drawing.Size(759, 130);
             this.dgvCustomerOutcomes.TabIndex = 0;
@@ -283,20 +289,23 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.dgvProgressNotes);
+            this.panel3.Controls.Add(this.dgvCustomerNotes);
             this.panel3.Location = new System.Drawing.Point(3, 27);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(759, 128);
             this.panel3.TabIndex = 6;
             // 
-            // dgvProgressNotes
+            // dgvCustomerNotes
             // 
-            this.dgvProgressNotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProgressNotes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProgressNotes.Location = new System.Drawing.Point(0, 0);
-            this.dgvProgressNotes.Name = "dgvProgressNotes";
-            this.dgvProgressNotes.Size = new System.Drawing.Size(759, 128);
-            this.dgvProgressNotes.TabIndex = 0;
+            this.dgvCustomerNotes.AllowUserToAddRows = false;
+            this.dgvCustomerNotes.AllowUserToDeleteRows = false;
+            this.dgvCustomerNotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCustomerNotes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCustomerNotes.Location = new System.Drawing.Point(0, 0);
+            this.dgvCustomerNotes.MultiSelect = false;
+            this.dgvCustomerNotes.Name = "dgvCustomerNotes";
+            this.dgvCustomerNotes.Size = new System.Drawing.Size(759, 128);
+            this.dgvCustomerNotes.TabIndex = 0;
             // 
             // lblProgressNotes
             // 
@@ -337,6 +346,7 @@
             this.btSaveNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btSaveNotes.Enabled = false;
             this.btSaveNotes.Location = new System.Drawing.Point(122, 10);
             this.btSaveNotes.Name = "btSaveNotes";
             this.btSaveNotes.Size = new System.Drawing.Size(92, 23);
@@ -370,9 +380,12 @@
             // 
             // dgvCustomerReferrals
             // 
+            this.dgvCustomerReferrals.AllowUserToAddRows = false;
+            this.dgvCustomerReferrals.AllowUserToDeleteRows = false;
             this.dgvCustomerReferrals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomerReferrals.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomerReferrals.Location = new System.Drawing.Point(0, 0);
+            this.dgvCustomerReferrals.MultiSelect = false;
             this.dgvCustomerReferrals.Name = "dgvCustomerReferrals";
             this.dgvCustomerReferrals.Size = new System.Drawing.Size(759, 126);
             this.dgvCustomerReferrals.TabIndex = 0;
@@ -464,7 +477,7 @@
             this.tpProgressNotes.ResumeLayout(false);
             this.tpProgressNotes.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProgressNotes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerNotes)).EndInit();
             this.panel6.ResumeLayout(false);
             this.tpReferrals.ResumeLayout(false);
             this.tpReferrals.PerformLayout();
@@ -498,7 +511,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpProgressNotes;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dgvProgressNotes;
+        private System.Windows.Forms.DataGridView dgvCustomerNotes;
         private System.Windows.Forms.Label lblProgressNotes;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btAddNotes;

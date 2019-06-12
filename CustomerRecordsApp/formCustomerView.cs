@@ -15,7 +15,7 @@ namespace CustomerRecordsApp
 {
     public partial class formCustomerView : Form
     {
-        SqlConnection conn;
+        //SqlConnection conn;
         // SqlCommand cmd;
         DataTable customerTable = new DataTable();
         List<Customer> modifiedCustomers = new List<Customer>();
@@ -57,7 +57,7 @@ namespace CustomerRecordsApp
         public void getCustomers(DataTable dt)
         {
             dgvCustomerData.DataSource = null;
-            Customer.getCustomersTable(dt);
+            Customer.getCustomerList(dt);
             dgvCustomerData.DataSource = dt;
         }
 
@@ -180,6 +180,25 @@ namespace CustomerRecordsApp
         private void BtRefresh_Click(object sender, EventArgs e)
         {
             getCustomers(customerTable);
+        }
+
+        private void DgvCustomerData_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridView gridview = (DataGridView) sender;
+            int alertCount;
+            if (gridview.SelectedRows.Count > 0 
+                && Int32.TryParse(gridview.SelectedRows[0].Cells["AlertCount"].Value.ToString(), out alertCount)) 
+                // assuming we can get a number of alerts...
+            {   // ...check if there are more than one for the selected customer and toggle alerts button appropriately.
+                if (alertCount >= 1 && !btViewAlerts.Enabled) // TODO: consider changing for multi-select mode
+                {
+                    btViewAlerts.Enabled = true;
+                }
+                else if (btViewAlerts.Enabled)
+                {
+                    btViewAlerts.Enabled = false;
+                }
+            }            
         }
     }    
 }

@@ -15,7 +15,10 @@ namespace CustomerRecordsApp
     public partial class formCustomerDetailView : Form
     {
         int customerID;
-        DataTable customerServicesTable = new DataTable(), customerReferralsTable = new DataTable();
+        DataTable customerServicesTable = new DataTable();
+        DataTable customerReferralsTable = new DataTable();
+        DataTable customerOutcomesTable = new DataTable();
+        DataTable customerNotesTable = new DataTable();
         public formCustomerDetailView(int CustomerID)
         {
             customerID = CustomerID;
@@ -25,7 +28,11 @@ namespace CustomerRecordsApp
 
         private void BtAddNotes_Click(object sender, EventArgs e)
         {
-            NewNotes notesView = new NewNotes(CustomerID);
+            using (NewNotes notesView = new NewNotes(customerID))
+            {
+                notesView.ShowDialog();
+            }
+
         }
 
         private void Initialize()
@@ -33,12 +40,19 @@ namespace CustomerRecordsApp
             InitializeComponent();
             Customer.getCustomerReferralsList(customerReferralsTable, customerID);
             dgvCustomerReferrals.DataSource = customerReferralsTable;
+            dgvCustomerReferrals.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
             
             Customer.getCustomerServicesList(customerServicesTable, customerID);
             dgvCustomerServices.DataSource = customerServicesTable;
+            dgvCustomerServices.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
 
-            
+            Customer.getCustomerOutcomesList(customerOutcomesTable, customerID);
+            dgvCustomerOutcomes.DataSource = customerOutcomesTable;
+            dgvCustomerOutcomes.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
 
+            Customer.getCustomerNotesList(customerNotesTable, customerID);
+            dgvCustomerNotes.DataSource = customerNotesTable;
+            dgvCustomerNotes.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
         }
     }
 }
