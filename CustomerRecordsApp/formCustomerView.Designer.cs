@@ -143,6 +143,7 @@
             this.btViewAlerts.TabIndex = 6;
             this.btViewAlerts.Text = "View Alerts";
             this.btViewAlerts.UseVisualStyleBackColor = true;
+            this.btViewAlerts.Click += new System.EventHandler(this.BtViewAlerts_Click);
             // 
             // formCustomerView
             // 
