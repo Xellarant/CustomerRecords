@@ -174,7 +174,16 @@ namespace CustomerRecordsApp
         }
         private void BtViewAlerts_Click(object sender, EventArgs e)
         {
-
+            if (dgvCustomerData.SelectedRows.Count > 0)
+            {
+                if (Int32.TryParse(dgvCustomerData.SelectedRows[0].Cells["Customer_ID"].Value.ToString(), out int customerID))
+                {
+                    using (formAlertView alertForm = new formAlertView(customerID))
+                    {
+                        alertForm.ShowDialog();
+                    }
+                }
+            }            
         }
         #endregion ///////////////      Form Events   /////////////////////////
     }

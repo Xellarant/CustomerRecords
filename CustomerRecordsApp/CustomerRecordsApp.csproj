@@ -58,11 +58,11 @@
     <Compile Include="formCustomerDetailView.Designer.cs">
       <DependentUpon>formCustomerDetailView.cs</DependentUpon>
     </Compile>
-    <Compile Include="formServiceView.cs">
+    <Compile Include="formAlertView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formServiceView.Designer.cs">
-      <DependentUpon>formServiceView.cs</DependentUpon>
+    <Compile Include="formAlertView.Designer.cs">
+      <DependentUpon>formAlertView.cs</DependentUpon>
     </Compile>
     <Compile Include="InputForms\NewNotes.cs">
       <SubType>Form</SubType>
@@ -78,8 +78,8 @@
     <EmbeddedResource Include="formCustomerDetailView.resx">
       <DependentUpon>formCustomerDetailView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formServiceView.resx">
-      <DependentUpon>formServiceView.cs</DependentUpon>
+    <EmbeddedResource Include="formAlertView.resx">
+      <DependentUpon>formAlertView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputForms\NewNotes.resx">
       <DependentUpon>NewNotes.cs</DependentUpon>
