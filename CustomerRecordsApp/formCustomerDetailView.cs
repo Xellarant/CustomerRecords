@@ -32,24 +32,46 @@ namespace CustomerRecordsApp
             {
                 notesView.ShowDialog();
             }
-
+            RefreshNotes();
         }
 
         private void Initialize()
         {
             InitializeComponent();
+
+            RefreshReferrals();
+            RefreshServices();
+            RefreshOutcomes();
+            RefreshNotes();
+        }
+
+        private void RefreshReferrals()
+        {
+            dgvCustomerReferrals.DataSource = null;
             Customer.getCustomerReferralsList(customerReferralsTable, customerID);
             dgvCustomerReferrals.DataSource = customerReferralsTable;
             dgvCustomerReferrals.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
-            
+        }
+
+        private void RefreshServices()
+        {
             Customer.getCustomerServicesList(customerServicesTable, customerID);
+
             dgvCustomerServices.DataSource = customerServicesTable;
             dgvCustomerServices.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+        }
 
+        private void RefreshOutcomes()
+        {
+            dgvCustomerOutcomes.DataSource = null;
             Customer.getCustomerOutcomesList(customerOutcomesTable, customerID);
             dgvCustomerOutcomes.DataSource = customerOutcomesTable;
             dgvCustomerOutcomes.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+        }
 
+        private void RefreshNotes()
+        {
+            dgvCustomerNotes.DataSource = null;
             Customer.getCustomerNotesList(customerNotesTable, customerID);
             dgvCustomerNotes.DataSource = customerNotesTable;
             dgvCustomerNotes.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);

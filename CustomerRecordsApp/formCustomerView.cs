@@ -186,5 +186,11 @@ namespace CustomerRecordsApp
             }            
         }
         #endregion ///////////////      Form Events   /////////////////////////
+
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            //TODO: make the datasource filter/search function actually work.... >.>
+            // dgvCustomerData.DataSource = customerTable.AsEnumerable().Where(t => t.Table.Columns["FirstName"].ToString().Contains())
+        }
     }
 }

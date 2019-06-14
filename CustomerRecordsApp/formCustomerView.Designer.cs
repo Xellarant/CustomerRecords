@@ -37,6 +37,8 @@
             this.lblDoubleClick = new System.Windows.Forms.Label();
             this.btRefresh = new System.Windows.Forms.Button();
             this.btViewAlerts = new System.Windows.Forms.Button();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerData)).BeginInit();
             this.panel2.SuspendLayout();
@@ -49,9 +51,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.dgvCustomerData);
-            this.panel1.Location = new System.Drawing.Point(12, 58);
+            this.panel1.Location = new System.Drawing.Point(12, 103);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(889, 283);
+            this.panel1.Size = new System.Drawing.Size(889, 238);
             this.panel1.TabIndex = 0;
             // 
             // dgvCustomerData
@@ -64,7 +66,7 @@
             this.dgvCustomerData.MultiSelect = false;
             this.dgvCustomerData.Name = "dgvCustomerData";
             this.dgvCustomerData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCustomerData.Size = new System.Drawing.Size(885, 279);
+            this.dgvCustomerData.Size = new System.Drawing.Size(885, 234);
             this.dgvCustomerData.TabIndex = 0;
             this.dgvCustomerData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerData_CellDoubleClick);
             this.dgvCustomerData.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerData_CellLeave);
@@ -126,9 +128,9 @@
             // 
             // btRefresh
             // 
-            this.btRefresh.Location = new System.Drawing.Point(12, 29);
+            this.btRefresh.Location = new System.Drawing.Point(12, 72);
             this.btRefresh.Name = "btRefresh";
-            this.btRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btRefresh.Size = new System.Drawing.Size(75, 25);
             this.btRefresh.TabIndex = 5;
             this.btRefresh.Text = "Refresh";
             this.btRefresh.UseVisualStyleBackColor = true;
@@ -137,19 +139,38 @@
             // btViewAlerts
             // 
             this.btViewAlerts.Enabled = false;
-            this.btViewAlerts.Location = new System.Drawing.Point(784, 29);
+            this.btViewAlerts.Location = new System.Drawing.Point(782, 72);
             this.btViewAlerts.Name = "btViewAlerts";
-            this.btViewAlerts.Size = new System.Drawing.Size(117, 23);
+            this.btViewAlerts.Size = new System.Drawing.Size(117, 24);
             this.btViewAlerts.TabIndex = 6;
             this.btViewAlerts.Text = "View Alerts";
             this.btViewAlerts.UseVisualStyleBackColor = true;
             this.btViewAlerts.Click += new System.EventHandler(this.BtViewAlerts_Click);
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(375, 75);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(179, 20);
+            this.tbSearch.TabIndex = 7;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Location = new System.Drawing.Point(322, 77);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(47, 13);
+            this.lblSearch.TabIndex = 8;
+            this.lblSearch.Text = "Search: ";
             // 
             // formCustomerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 400);
+            this.Controls.Add(this.lblSearch);
+            this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.btViewAlerts);
             this.Controls.Add(this.btRefresh);
             this.Controls.Add(this.lblDoubleClick);
@@ -179,6 +200,8 @@
         private System.Windows.Forms.Label lblDoubleClick;
         private System.Windows.Forms.Button btRefresh;
         private System.Windows.Forms.Button btViewAlerts;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Label lblSearch;
     }
 }
 
