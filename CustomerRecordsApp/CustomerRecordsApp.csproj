@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -72,6 +73,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilityClasses\ConnectionAccess.cs" />
     <EmbeddedResource Include="formCustomerView.resx">
       <DependentUpon>formCustomerView.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,9 +109,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DatabaseAccess\DatabaseAccess\DatabaseAccess.csproj">
-      <Project>{f65f3ab2-1986-4bca-aeeb-b33326338f0d}</Project>
-      <Name>DatabaseAccess</Name>
+    <ProjectReference Include="..\CustomerRecordsApp.Data\CustomerRecordsApp.Data.csproj">
+      <Project>{b66fe3f7-ee2f-437e-a51e-37c981938d74}</Project>
+      <Name>CustomerRecordsApp.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

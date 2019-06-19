@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CustomerRecordsApp.InputForms;
-using DatabaseAccess;
+using CustomerRecordsApp.Data;
 
 namespace CustomerRecordsApp
 {

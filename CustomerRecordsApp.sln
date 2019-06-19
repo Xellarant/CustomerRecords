@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.645
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerRecordsApp", "CustomerRecordsApp\CustomerRecordsApp.csproj", "{27F7A19C-EF61-4850-A366-38836CDE094A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseAccess", "..\DatabaseAccess\DatabaseAccess\DatabaseAccess.csproj", "{F65F3AB2-1986-4BCA-AEEB-B33326338F0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerRecordsApp.Data", "CustomerRecordsApp.Data\CustomerRecordsApp.Data.csproj", "{B66FE3F7-EE2F-437E-A51E-37C981938D74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{27F7A19C-EF61-4850-A366-38836CDE094A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27F7A19C-EF61-4850-A366-38836CDE094A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27F7A19C-EF61-4850-A366-38836CDE094A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F65F3AB2-1986-4BCA-AEEB-B33326338F0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F65F3AB2-1986-4BCA-AEEB-B33326338F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F65F3AB2-1986-4BCA-AEEB-B33326338F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F65F3AB2-1986-4BCA-AEEB-B33326338F0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B66FE3F7-EE2F-437E-A51E-37C981938D74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66FE3F7-EE2F-437E-A51E-37C981938D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B66FE3F7-EE2F-437E-A51E-37C981938D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B66FE3F7-EE2F-437E-A51E-37C981938D74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
