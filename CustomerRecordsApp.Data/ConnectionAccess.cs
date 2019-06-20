@@ -14,15 +14,15 @@ namespace CustomerRecordsApp.Data
         /// </summary>
         /// 
 
-        public static string connString
+        public static string connString // alias for default string set programmatically (just so it only changes in one place)
         {
             get
             {
-                return AzureString;
+                return AccessString;
             }
         }
 
-        private static string AzureString
+        public static string AzureString
         {
             get
             {
@@ -32,7 +32,7 @@ namespace CustomerRecordsApp.Data
             }
         }
 
-        private static string AccessString
+        public static string AccessString
         {
             get
             {

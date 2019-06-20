@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Access\Scripts.cs" />
+    <Compile Include="Azure\Customer.cs" />
     <Compile Include="ConnectionAccess.cs" />
-    <Compile Include="Customer.cs" />
+    <Compile Include="Access\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

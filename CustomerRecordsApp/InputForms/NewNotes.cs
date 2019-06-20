@@ -24,7 +24,8 @@ namespace CustomerRecordsApp.InputForms
         {
             try
             {
-                Customer.addNotes(customer_ID, tbNotesBox.Text, dtpNotesDate.Value);
+                //TODO: Reimplement for MS Access equivalent
+                //Customer.addNotes(customer_ID, tbNotesBox.Text, dtpNotesDate.Value);
                 this.Close();
             }
             catch (Exception ex)

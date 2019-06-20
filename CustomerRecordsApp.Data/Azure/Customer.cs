@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomerRecordsApp.Data
+namespace CustomerRecordsApp.Data.Azure
 {
     public partial class Customer
     {
@@ -57,6 +57,13 @@ namespace CustomerRecordsApp.Data
                     }
                 })
             {
+                foreach (SqlParameter param in cmd.Parameters)
+                {
+                    if (param.Value == null)
+                    {
+                        param.Value = DBNull.Value;
+                    }
+                }
                 try
                 {
                     conn.Open();

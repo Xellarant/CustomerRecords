@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CustomerRecordsApp.InputForms;
-using CustomerRecordsApp.Data;
+using CustomerRecordsApp.Data.Access;
 
 namespace CustomerRecordsApp
 {
@@ -47,7 +47,7 @@ namespace CustomerRecordsApp
 
         private void RefreshReferrals()
         {
-            dgvCustomerReferrals.DataSource = null;
+            dgvCustomerReferrals.DataSource = null;            
             Customer.getCustomerReferralsList(customerReferralsTable, customerID);
             dgvCustomerReferrals.DataSource = customerReferralsTable;
             dgvCustomerReferrals.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
@@ -55,8 +55,9 @@ namespace CustomerRecordsApp
 
         private void RefreshServices()
         {
-            Customer.getCustomerServicesList(customerServicesTable, customerID);
-
+            dgvCustomerServices.DataSource = null;
+            //TODO: Reimplement for MS Access equivalent
+            //Customer.getCustomerServicesList(customerServicesTable, customerID);
             dgvCustomerServices.DataSource = customerServicesTable;
             dgvCustomerServices.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
         }
@@ -64,7 +65,8 @@ namespace CustomerRecordsApp
         private void RefreshOutcomes()
         {
             dgvCustomerOutcomes.DataSource = null;
-            Customer.getCustomerOutcomesList(customerOutcomesTable, customerID);
+            //TODO: Reimplement for MS Access equivalent
+            //Customer.getCustomerOutcomesList(customerOutcomesTable, customerID);
             dgvCustomerOutcomes.DataSource = customerOutcomesTable;
             dgvCustomerOutcomes.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
         }
@@ -72,7 +74,8 @@ namespace CustomerRecordsApp
         private void RefreshNotes()
         {
             dgvCustomerNotes.DataSource = null;
-            Customer.getCustomerNotesList(customerNotesTable, customerID);
+            //TODO: Reimplement for MS Access equivalent
+            //Customer.getCustomerNotesList(customerNotesTable, customerID);
             dgvCustomerNotes.DataSource = customerNotesTable;
             dgvCustomerNotes.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
         }

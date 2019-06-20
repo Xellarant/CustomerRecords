@@ -1,4 +1,4 @@
-﻿using CustomerRecordsApp.Data;
+﻿using CustomerRecordsApp.Data.Access;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +19,7 @@ namespace CustomerRecordsApp
         {
             customerID = CustomerID;
             InitializeComponent();
+            
             Customer.getCustomerAlertsList(alertsTable, customerID);
             dgvCustomerAlerts.DataSource = alertsTable;
         }
