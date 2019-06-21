@@ -29,3 +29,5 @@ C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.formAlertView.resources
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\bin\Debug\CustomerRecordsApp.Data.dll
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\bin\Debug\CustomerRecordsApp.Data.pdb
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.InputForms.formNewCustomer.resources
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.InputForms.formNewAlert.resources

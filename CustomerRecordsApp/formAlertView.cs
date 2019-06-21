@@ -1,4 +1,4 @@
-﻿using CustomerRecordsApp.Data.Azure;
+﻿using CustomerRecordsApp.Data.Access;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,15 +13,32 @@ namespace CustomerRecordsApp
 {
     public partial class formAlertView : Form
     {
-        int customerID;
+        Customer customer;        
         DataTable alertsTable = new DataTable();
-        public formAlertView(int CustomerID)
+        public formAlertView(Customer cust)
         {
-            customerID = CustomerID;
+            customer = cust;            
             InitializeComponent();
             
-            Customer.getCustomerAlertsList(alertsTable, customerID);
+            Customer.getCustomerAlertsList(alertsTable, customer.Customer_ID);
             dgvCustomerAlerts.DataSource = alertsTable;
+            dgvCustomerAlerts.Columns["Details"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvCustomerAlerts.Columns["CustomerAlert_ID"].Visible = false;
+            dgvCustomerAlerts.Columns["Customer_ID"].Visible = false;
+            dgvCustomerAlerts.Columns["AlertType_ID"].Visible = false;
+        }
+
+        private void BtSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtAdd_Click(object sender, EventArgs e)
+        {
+            using (InputForms.formNewAlert newAlertForm = new InputForms.formNewAlert(customer))
+            {
+                newAlertForm.ShowDialog();
+            }            
         }
     }
 }

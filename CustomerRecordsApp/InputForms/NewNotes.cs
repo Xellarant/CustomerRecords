@@ -1,4 +1,4 @@
-﻿using CustomerRecordsApp.Data;
+﻿using CustomerRecordsApp.Data.Access;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,8 +24,7 @@ namespace CustomerRecordsApp.InputForms
         {
             try
             {
-                //TODO: Reimplement for MS Access equivalent
-                //Customer.addNotes(customer_ID, tbNotesBox.Text, dtpNotesDate.Value);
+                Customer.addNotes(customer_ID, tbNotesBox.Text, dtpNotesDate.Value);
                 this.Close();
             }
             catch (Exception ex)

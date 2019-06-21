@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btAdd = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
             this.panelReferralDGV = new System.Windows.Forms.Panel();
             this.dgvCustomerAlerts = new System.Windows.Forms.DataGridView();
@@ -42,24 +42,25 @@
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btAdd);
             this.panel2.Controls.Add(this.btSave);
             this.panel2.Location = new System.Drawing.Point(540, 212);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(217, 40);
             this.panel2.TabIndex = 3;
             // 
-            // button2
+            // btAdd
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(18, 10);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(98, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btAdd.Location = new System.Drawing.Point(18, 10);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(98, 23);
+            this.btAdd.TabIndex = 1;
+            this.btAdd.Text = "Add";
+            this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.BtAdd_Click);
             // 
             // btSave
             // 
@@ -72,6 +73,7 @@
             this.btSave.TabIndex = 0;
             this.btSave.Text = "Save";
             this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.BtSave_Click);
             // 
             // panelReferralDGV
             // 
@@ -79,9 +81,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelReferralDGV.Controls.Add(this.dgvCustomerAlerts);
-            this.panelReferralDGV.Location = new System.Drawing.Point(12, 45);
+            this.panelReferralDGV.Location = new System.Drawing.Point(12, 54);
             this.panelReferralDGV.Name = "panelReferralDGV";
-            this.panelReferralDGV.Size = new System.Drawing.Size(745, 161);
+            this.panelReferralDGV.Size = new System.Drawing.Size(745, 152);
             this.panelReferralDGV.TabIndex = 2;
             // 
             // dgvCustomerAlerts
@@ -93,7 +95,7 @@
             this.dgvCustomerAlerts.Location = new System.Drawing.Point(0, 0);
             this.dgvCustomerAlerts.MultiSelect = false;
             this.dgvCustomerAlerts.Name = "dgvCustomerAlerts";
-            this.dgvCustomerAlerts.Size = new System.Drawing.Size(745, 161);
+            this.dgvCustomerAlerts.Size = new System.Drawing.Size(745, 152);
             this.dgvCustomerAlerts.TabIndex = 0;
             // 
             // lblCustomerServices
@@ -129,7 +131,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.Panel panelReferralDGV;
         private System.Windows.Forms.DataGridView dgvCustomerAlerts;

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CustomerRecordsApp.Data.Azure;
+using CustomerRecordsApp.Data.Access;
 using System.Reflection;
 
 namespace CustomerRecordsApp
@@ -15,6 +15,7 @@ namespace CustomerRecordsApp
     public partial class formCustomerView : Form
     {
         DataTable customerTable = Customer.getCustomerTable();
+        Customer currentCustomer = new Customer();
         List<Customer> modifiedCustomers = new List<Customer>();
         public formCustomerView()
         {           
@@ -132,14 +133,14 @@ namespace CustomerRecordsApp
                 gridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
                 DataRowView currentRowView = (DataRowView)gridView.Rows[e.RowIndex].DataBoundItem;
                 DataRow currentRow = currentRowView.Row;
-                Customer currentCustomer = new Customer();
-                CustomerRowToObject(currentRow, currentCustomer);
-                Customer match = modifiedCustomers.Where(cust => cust.Customer_ID == currentCustomer.Customer_ID).FirstOrDefault();
+                Customer modifiedCustomer = new Customer();
+                CustomerRowToObject(currentRow, modifiedCustomer);
+                Customer match = modifiedCustomers.Where(cust => cust.Customer_ID == modifiedCustomer.Customer_ID).FirstOrDefault();
                 if (modifiedCustomers.Contains(match)) // if we captured this customer before, delete the previous snapshot.
                 {
                     modifiedCustomers.Remove(match);
                 }
-                modifiedCustomers.Add(currentCustomer); // add the new changes to the queue regardless.
+                modifiedCustomers.Add(modifiedCustomer); // add the new changes to the queue regardless.
 
                 gridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Aqua;
                 if (!btUpdate.Enabled)
@@ -155,22 +156,11 @@ namespace CustomerRecordsApp
         }
 
         private void DgvCustomerData_SelectionChanged(object sender, EventArgs e)
-        {
-            DataGridView gridview = (DataGridView)sender;
-            int alertCount;
-            if (gridview.SelectedRows.Count > 0
-                && Int32.TryParse(gridview.SelectedRows[0].Cells["AlertCount"].Value.ToString(), out alertCount))
-            // assuming we can get a number of alerts...
-            {   // ...check if there are more than one for the selected customer and toggle alerts button appropriately.
-                if (alertCount >= 1 && !btViewAlerts.Enabled) // TODO: consider changing for multi-select mode
-                {
-                    btViewAlerts.Enabled = true;
-                }
-                else if (btViewAlerts.Enabled)
-                {
-                    btViewAlerts.Enabled = false;
-                }
-            }
+        {            
+            DataRowView currentRowView = (DataRowView)dgvCustomerData.SelectedRows[0].DataBoundItem;
+            DataRow currentRow = currentRowView.Row;
+
+            CustomerRowToObject(currentRow, currentCustomer);
         }
         private void BtViewAlerts_Click(object sender, EventArgs e)
         {
@@ -178,7 +168,7 @@ namespace CustomerRecordsApp
             {
                 if (Int32.TryParse(dgvCustomerData.SelectedRows[0].Cells["Customer_ID"].Value.ToString(), out int customerID))
                 {
-                    using (formAlertView alertForm = new formAlertView(customerID))
+                    using (formAlertView alertForm = new formAlertView(currentCustomer))
                     {
                         alertForm.ShowDialog();
                     }

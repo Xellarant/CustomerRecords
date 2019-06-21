@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CustomerRecordsApp.InputForms;
-using CustomerRecordsApp.Data.Azure;
+using CustomerRecordsApp.Data.Access;
 
 namespace CustomerRecordsApp
 {
@@ -75,9 +75,10 @@ namespace CustomerRecordsApp
         {
             dgvCustomerNotes.DataSource = null;
             //TODO: Reimplement for MS Access equivalent
-            //Customer.getCustomerNotesList(customerNotesTable, customerID);
+            Customer.getCustomerNotesList(customerNotesTable, customerID);
             dgvCustomerNotes.DataSource = customerNotesTable;
             dgvCustomerNotes.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+            dgvCustomerNotes.Columns["Notes"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
     }
 }

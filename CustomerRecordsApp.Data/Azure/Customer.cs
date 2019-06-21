@@ -10,7 +10,7 @@ namespace CustomerRecordsApp.Data.Azure
 {
     public partial class Customer
     {
-        public int? Customer_ID { get; set; }
+        public int Customer_ID { get; set; }
         public string FirstName { get; set; }
         public string MiddleInitial { get; set; }
         public string LastName { get; set; }

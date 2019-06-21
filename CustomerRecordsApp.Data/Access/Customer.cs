@@ -10,7 +10,7 @@ namespace CustomerRecordsApp.Data.Access
 {
     public partial class Customer
     {
-        public int? Customer_ID { get; set; }
+        public int Customer_ID { get; set; }
         public string FirstName { get; set; }
         public string MiddleInitial { get; set; }
         public string LastName { get; set; }
@@ -21,6 +21,7 @@ namespace CustomerRecordsApp.Data.Access
         public string StateName { get; set; }
         public string Zip { get; set; }
         public int? ISIS_ID { get; set; }
+        //OleDbConnection conn = new OleDbConnection(ConnectionAccess.connString);
 
         /// <summary>
         /// Pulls a list of all customers (if not given a customer ID. Else, pulls specific Customer details.
@@ -171,6 +172,149 @@ namespace CustomerRecordsApp.Data.Access
                 }
             } // end cmd using scope
         } // end getCustomerAlertsList
+
+        /// <summary>
+        /// Method for getting the types of Alerts
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="Customer_ID"></param>
+        public static void getCustomerAlertTypesList(DataTable dt)
+        {
+            string query = Scripts.sqlgetCustomerAlertTypes;
+            using (
+                OleDbCommand dbCommand = new OleDbCommand()
+                {
+                    Connection = new OleDbConnection(ConnectionAccess.connString),
+                    CommandType = CommandType.Text,
+                    CommandText = query
+                }) // end using parenthetical
+            { // begin using scope                
+                using (OleDbDataAdapter dataAdapter = new OleDbDataAdapter(dbCommand))
+                {
+                    try
+                    {
+                        dataAdapter.Fill(dt);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Error.WriteLine($"An Error Occured trying to retrieve the data!.\n\nException: {ex}");
+                    }
+                }
+            } // end cmd using scope
+        } // end getCustomerAlertsList
+
+        /// <summary>
+        /// Adds an alert for a selected customer with given text.
+        /// </summary>
+        /// <param name="customerID"></param>
+        /// <param name="alertTypeID"></param>
+        /// <param name="text"></param>
+        public static void addCustomerAlert(int customerID, int alertTypeID, string details)
+        {
+
+            string query = Scripts.sqlAddCustomerAlert;
+            using (
+                OleDbCommand dbCommand = new OleDbCommand()
+                {
+                    Connection = new OleDbConnection(ConnectionAccess.connString),
+                    CommandType = CommandType.Text,
+                    CommandText = query,
+                    Parameters =
+                        {
+                            new OleDbParameter("@Customer_ID", customerID),
+                            new OleDbParameter("@AlertType_ID", alertTypeID),
+                            new OleDbParameter("@Details", details)
+                        }
+                }) // end using parenthetical
+            { // begin using scope
+                foreach (OleDbParameter param in dbCommand.Parameters)
+                { // replace ambiguous null values with explicit DBNulls.
+                    if (param.Value == null)
+                    {
+                        param.Value = DBNull.Value;
+                    }
+                }
+                dbCommand.Connection.Open();
+                int rowsAffected = dbCommand.ExecuteNonQuery();
+                dbCommand.Connection.Close();
+                Console.WriteLine($"Rows affected: {rowsAffected}");
+            }
+        } // end addCustomerAlert
+
+
+        /// <summary>
+        /// Adds Notes for a given customer.
+        /// </summary>
+        /// <param name="customerID"></param>
+        /// <param name="notes"></param>
+        /// /// <param name="notesDate"></param>
+        public static void addNotes(int customerID, string notes, DateTime notesDate)
+        {
+            //throw new NotImplementedException;
+
+            string query = Scripts.sqlAddCustomerNotes;
+            using (
+                OleDbCommand dbCommand = new OleDbCommand()
+                {
+                    Connection = new OleDbConnection(ConnectionAccess.connString),
+                    CommandType = CommandType.Text,
+                    CommandText = query,
+                    Parameters =
+                        {
+                            new OleDbParameter("@Customer_ID", customerID),
+                            new OleDbParameter("@Notes", notes),
+                            new OleDbParameter("@NotesDate", notesDate)
+                        }
+                }) // end using parenthetical
+            { // begin using scope
+                foreach (OleDbParameter param in dbCommand.Parameters)
+                { // replace ambiguous null values with explicit DBNulls.
+                    if (param.Value == null)
+                    {
+                        param.Value = DBNull.Value;
+                    }
+                }
+                dbCommand.Connection.Open();
+                int rowsAffected = dbCommand.ExecuteNonQuery();
+                dbCommand.Connection.Close();
+                Console.WriteLine($"Rows affected: {rowsAffected}");
+            }
+        } // end addCustomerNotes
+
+        /// <summary>
+        /// Method for getting the types of Alerts
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="Customer_ID"></param>
+        public static void getCustomerNotesList(DataTable dt, int customerID)
+        {
+            string query = Scripts.sqlgetCustomerNotes;
+            using (
+                OleDbCommand dbCommand = new OleDbCommand()
+                {
+                    Connection = new OleDbConnection(ConnectionAccess.connString),
+                    CommandType = CommandType.Text,
+                    CommandText = query,
+                    Parameters =
+                    {
+                        new OleDbParameter("@Customer_ID", customerID)
+                    }
+                }) // end using parenthetical
+            { // begin using scope                
+                using (OleDbDataAdapter dataAdapter = new OleDbDataAdapter(dbCommand))
+                {
+                    try
+                    {
+                        dataAdapter.Fill(dt);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Error.WriteLine($"An Error Occured trying to retrieve the data!.\n\nException: {ex}");
+                    }
+                }
+            } // end cmd using scope
+        } // end getCustomerNotesList
+
 
         public static void getCustomerReferralsList(DataTable dt, int? Customer_ID = null)
         {

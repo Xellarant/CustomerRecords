@@ -18,7 +18,7 @@ namespace CustomerRecordsApp.Data
         {
             get
             {
-                return ListingsString;
+                return AccessString;
             }
         }
 
