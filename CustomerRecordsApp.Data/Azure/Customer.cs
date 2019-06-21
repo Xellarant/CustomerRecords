@@ -22,8 +22,9 @@ namespace CustomerRecordsApp.Data.Azure
         public string Zip { get; set; }
         public int? ISIS_ID { get; set; }
 
-        public static void getCustomerList(DataTable dt)
+        public static DataTable getCustomerTable()
         {
+            DataTable dt = new DataTable();
             string query = "EXEC getCustomerList";
             SqlCommand cmd = new SqlCommand(query, new SqlConnection(ConnectionAccess.connString))
             {
@@ -32,7 +33,15 @@ namespace CustomerRecordsApp.Data.Azure
                 CommandType = CommandType.Text
             };
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-            dataAdapter.Fill(dt);
+            try
+            {
+                dataAdapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Could not access data!\n\nException: {ex}");
+            }
+            return dt;
         }
 
         public static void addCustomer(Customer cust)

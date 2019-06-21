@@ -1,4 +1,4 @@
-﻿using CustomerRecordsApp.Data.Access;
+﻿using CustomerRecordsApp.Data.Azure;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

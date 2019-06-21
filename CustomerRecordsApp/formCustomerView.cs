@@ -7,25 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CustomerRecordsApp.Data.Access;
+using CustomerRecordsApp.Data.Azure;
 using System.Reflection;
 
 namespace CustomerRecordsApp
 {
     public partial class formCustomerView : Form
     {
-        DataTable customerTable = new DataTable();
+        DataTable customerTable = Customer.getCustomerTable();
         List<Customer> modifiedCustomers = new List<Customer>();
         public formCustomerView()
         {           
             Initialize();
-            
+            dgvCustomerData.DataSource = customerTable;
 
         }
 
         public void Initialize()
         {
             InitializeComponent();
+            dgvCustomerData.DataSource = customerTable;
 
             //TODO: any additional things that might need to happen here?            
         }
@@ -36,7 +37,7 @@ namespace CustomerRecordsApp
         public void RefreshCustomers()
         {
             dgvCustomerData.DataSource = null;
-            Customer.getCustomerList(customerTable);
+            customerTable = Customer.getCustomerTable();
             dgvCustomerData.DataSource = customerTable;
         }
 
@@ -85,7 +86,7 @@ namespace CustomerRecordsApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            RefreshCustomers();
+            //RefreshCustomers();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

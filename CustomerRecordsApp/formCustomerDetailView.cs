@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CustomerRecordsApp.InputForms;
-using CustomerRecordsApp.Data.Access;
+using CustomerRecordsApp.Data.Azure;
 
 namespace CustomerRecordsApp
 {

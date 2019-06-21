@@ -18,7 +18,7 @@ namespace CustomerRecordsApp.Data
         {
             get
             {
-                return AccessString;
+                return ListingsString;
             }
         }
 
@@ -38,6 +38,16 @@ namespace CustomerRecordsApp.Data
             {
                 return ConfigurationManager
                     .ConnectionStrings["AccessDB"]
+                    .ToString();
+            }
+        }
+
+        public static string ListingsString
+        {
+            get
+            {
+                return ConfigurationManager
+                    .ConnectionStrings["AzureListingsDB"]
                     .ToString();
             }
         }

@@ -3,3 +3,4 @@ C:\Source\Repos\CustomerRecords\CustomerRecordsApp.Data\bin\Debug\CustomerRecord
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp.Data\bin\Debug\CustomerRecordsApp.Data.pdb
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp.Data\obj\Debug\CustomerRecordsApp.Data.dll
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp.Data\obj\Debug\CustomerRecordsApp.Data.pdb
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp.Data\obj\Debug\CustomerRecordsApp.Data.csprojAssemblyReference.cache

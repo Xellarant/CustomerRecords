@@ -26,8 +26,9 @@ namespace CustomerRecordsApp.Data.Access
         /// Pulls a list of all customers (if not given a customer ID. Else, pulls specific Customer details.
         /// </summary>
         /// <param name="dt"></param>
-        public static void getCustomerList(DataTable dt, int? Customer_ID = null)
+        public static DataTable getCustomerTable(int? Customer_ID = null)
         {
+            DataTable dt = new DataTable();
             string query = Scripts.sqlGetCustomerDetails;
             using (OleDbDataAdapter dataAdapter = new OleDbDataAdapter())
             {
@@ -54,8 +55,8 @@ namespace CustomerRecordsApp.Data.Access
                 {
                     Console.Error.WriteLine($"An Error Occured trying to retrieve the data!.\n\nException: {ex}");
                 }
-                
-            }
+            } // end using scope
+            return dt;
         }
 
         public static void addCustomer(Customer cust)
