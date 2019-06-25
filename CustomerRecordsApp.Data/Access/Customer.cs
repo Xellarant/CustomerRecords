@@ -261,12 +261,15 @@ namespace CustomerRecordsApp.Data.Access
                     CommandText = query,
                     Parameters =
                         {
-                            new OleDbParameter("@Customer_ID", customerID),
-                            new OleDbParameter("@Notes", notes),
-                            new OleDbParameter("@NotesDate", notesDate)
+                            new OleDbParameter("@Customer_ID", OleDbType.Integer),
+                            new OleDbParameter("@Notes", OleDbType.LongVarChar),
+                            new OleDbParameter("@NotesDate", OleDbType.DBTimeStamp)
                         }
                 }) // end using parenthetical
             { // begin using scope
+                dbCommand.Parameters[0].Value = customerID;
+                dbCommand.Parameters[1].Value = notes;
+                dbCommand.Parameters[2].Value = notesDate;
                 foreach (OleDbParameter param in dbCommand.Parameters)
                 { // replace ambiguous null values with explicit DBNulls.
                     if (param.Value == null)

@@ -47,7 +47,7 @@ namespace CustomerRecordsApp.Data
         public static readonly string sqlgetCustomerReferrals = "SELECT Referral_ID,age.AgencyName,age.AgencyAddress"
             + ",ref.AppointmentDate,ref.AppointmentTime,ref.ReferralContact	 ,ref.ReferralOriginator\n FROM   (Customers cust"
             + "\n INNER JOIN Referrals ref ON cust.Customer_ID = ref.Customer_ID) \nINNER JOIN Agencies age "
-            + "ON ref.Agency_ID = age.Agency_ID WHERE   (Customer_ID = @Customer_ID OR @Customer_ID IS NULL)";
+            + "ON ref.Agency_ID = age.Agency_ID WHERE   (cust.Customer_ID = @Customer_ID OR @Customer_ID IS NULL)";
 
         public static readonly string sqlAddCustomerAlert = "INSERT INTO CustomerAlerts (Customer_ID, AlertType_ID, Details) \n"
             + "VALUES(@Customer_ID, @AlertType_ID, @Details)";
