@@ -18,16 +18,22 @@ namespace CustomerRecordsApp
         Customer currentCustomer = new Customer();
         List<Customer> modifiedCustomers = new List<Customer>();
         public formCustomerView()
-        {           
+        {
             Initialize();
-            dgvCustomerData.DataSource = customerTable;
-
         }
 
         public void Initialize()
         {
-            InitializeComponent();
-            dgvCustomerData.DataSource = customerTable;
+            try
+            {
+                InitializeComponent();
+                dgvCustomerData.DataSource = customerTable;
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Exception: {ex}");
+            }
+            
 
             //TODO: any additional things that might need to happen here?            
         }
@@ -84,11 +90,6 @@ namespace CustomerRecordsApp
         #endregion ///////////////      Private Methods   /////////////////////////
 
         #region ///////////////      Form Events   /////////////////////////
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //RefreshCustomers();
-        }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -156,12 +157,21 @@ namespace CustomerRecordsApp
         }
 
         private void DgvCustomerData_SelectionChanged(object sender, EventArgs e)
-        {            
-            DataRowView currentRowView = (DataRowView)dgvCustomerData.SelectedRows[0].DataBoundItem;
-            DataRow currentRow = currentRowView.Row;
+        {
+            if (dgvCustomerData.SelectedRows.Count > 0)
+            try
+            {
+                DataRowView currentRowView = (DataRowView)dgvCustomerData.SelectedRows[0].DataBoundItem;
+                DataRow currentRow = currentRowView.Row;
 
-            CustomerRowToObject(currentRow, currentCustomer);
+                CustomerRowToObject(currentRow, currentCustomer);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Exception: {ex}");
+            }
         }
+
         private void BtViewAlerts_Click(object sender, EventArgs e)
         {
             if (dgvCustomerData.SelectedRows.Count > 0)

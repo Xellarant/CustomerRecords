@@ -250,8 +250,6 @@ namespace CustomerRecordsApp.Data.Access
         /// /// <param name="notesDate"></param>
         public static void addNotes(int customerID, string notes, DateTime notesDate)
         {
-            //throw new NotImplementedException;
-
             string query = Scripts.sqlAddCustomerNotes;
             using (
                 OleDbCommand dbCommand = new OleDbCommand()
@@ -263,7 +261,7 @@ namespace CustomerRecordsApp.Data.Access
                         {
                             new OleDbParameter("@Customer_ID", OleDbType.Integer),
                             new OleDbParameter("@Notes", OleDbType.LongVarChar),
-                            new OleDbParameter("@NotesDate", OleDbType.DBTimeStamp)
+                            new OleDbParameter("@NotesDate", OleDbType.Date)
                         }
                 }) // end using parenthetical
             { // begin using scope
