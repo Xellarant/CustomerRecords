@@ -261,7 +261,7 @@ namespace CustomerRecordsApp.Data.Access
                         {
                             new OleDbParameter("@Customer_ID", OleDbType.Integer),
                             new OleDbParameter("@Notes", OleDbType.LongVarChar),
-                            new OleDbParameter("@NotesDate", OleDbType.Date)
+                            new OleDbParameter("@NotesDate", OleDbType.Date) // captures date AND Time.
                         }
                 }) // end using parenthetical
             { // begin using scope
