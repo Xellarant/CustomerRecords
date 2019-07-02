@@ -75,6 +75,7 @@ namespace CustomerRecordsApp
             //customer.Zip = row["Zip"].ToString();
             //customer.ISIS_ID = (int?)row["ISIS_ID"];
         }
+        
         private void ClearDirtyRows()
         {
             foreach (Customer cust in modifiedCustomers)

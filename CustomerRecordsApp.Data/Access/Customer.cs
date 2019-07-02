@@ -30,7 +30,8 @@ namespace CustomerRecordsApp.Data.Access
         public static DataTable getCustomerTable(int? Customer_ID = null)
         {
             DataTable dt = new DataTable();
-            string query = Scripts.sqlGetCustomerDetails;
+            //string query = Scripts.sqlGetCustomerDetails;
+            string query = Scripts.sqlGetCustomerRosterDetails;
             using (OleDbDataAdapter dataAdapter = new OleDbDataAdapter())
             {
                 // Create the command and set its properties

@@ -20,6 +20,21 @@ namespace CustomerRecordsApp.Data
             + "CityName, StateName, Zip, ISIS_ID, AlertCount "
             + "FROM Customers WHERE Customer_ID = @Customer_ID OR @Customer_ID IS NULL;";
 
+        /// <summary>
+        /// Sql script to get customer details from roster table
+        /// </summary>
+        public static readonly string sqlGetCustomerRosterDetails = "SELECT "
+            + "cust.Roster_ID, cust.Customer_ID, cust.FirstName, cust.MiddleInitial, " +
+            "cust.LastName, cust.DOB, crost.DateOfService, crost.Staff, crost.EnrollmentType, " +
+            "cust.StreetAddress, cust.CityName, cust.StateName, cust.Zip, "
+            + "crost.ReferredBy, crost.ReasonForVisit, crost.SubmissionDate, crost.ISIS_ID, "
+            + "crost.SelfCertified, crost.IntakeDate, crost.AgeGroup, crost.PSAExpDate, crost.YouthSchool, "
+            + "crost.Notes, crost.PhoneNumber, crost.Email, crost.PY_ID"
+            + " FROM CustomerRosterDenormalized crost " +
+            "RIGHT JOIN Customers cust ON crost.RosterID = cust.Roster_ID" +
+            " WHERE cust.Customer_ID = @Customer_ID OR @Customer_ID IS NULL;";
+
+
         public static readonly string sqlUpdateCustomer = "UPDATE Customers "
             + "SET "
             + "FirstName = ISNULL(@FirstName, FirstName)"
