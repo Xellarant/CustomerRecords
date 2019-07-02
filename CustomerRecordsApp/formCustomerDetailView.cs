@@ -80,5 +80,47 @@ namespace CustomerRecordsApp
             dgvCustomerNotes.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
             dgvCustomerNotes.Columns["Notes"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
+
+        private void BtSaveNotes_Click(object sender, EventArgs e)
+        {
+            // TODO: Implement this
+            throw new NotImplementedException();
+        }
+
+        private void BtAddReferral_Click(object sender, EventArgs e)
+        {
+            // TODO: Implement this
+            throw new NotImplementedException();
+        }
+
+        private void BtSaveReferral_Click(object sender, EventArgs e)
+        {
+            // TODO: Implement this
+            throw new NotImplementedException();
+        }
+
+        private void BtAddService_Click(object sender, EventArgs e)
+        {
+            // TODO: Implement this
+            throw new NotImplementedException();
+        }
+
+        private void BtSaveService_Click(object sender, EventArgs e)
+        {
+            // TODO: Implement this
+            throw new NotImplementedException();
+        }
+
+        private void BtAddOutcome_Click(object sender, EventArgs e)
+        {
+            // TODO: Implement this
+            throw new NotImplementedException();
+        }
+
+        private void BtSaveOutcome_Click(object sender, EventArgs e)
+        {
+            // TODO: Implement this
+            throw new NotImplementedException();
+        }
     }
 }

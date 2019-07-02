@@ -104,6 +104,7 @@
             this.btAddService.TabIndex = 1;
             this.btAddService.Text = "Add";
             this.btAddService.UseVisualStyleBackColor = true;
+            this.btAddService.Click += new System.EventHandler(this.BtAddService_Click);
             // 
             // btSaveService
             // 
@@ -116,6 +117,7 @@
             this.btSaveService.TabIndex = 0;
             this.btSaveService.Text = "Save";
             this.btSaveService.UseVisualStyleBackColor = true;
+            this.btSaveService.Click += new System.EventHandler(this.BtSaveService_Click);
             // 
             // lblCustomerServices
             // 
@@ -245,6 +247,7 @@
             this.btAddOutcome.TabIndex = 1;
             this.btAddOutcome.Text = "Add";
             this.btAddOutcome.UseVisualStyleBackColor = true;
+            this.btAddOutcome.Click += new System.EventHandler(this.BtAddOutcome_Click);
             // 
             // btSaveOutcome
             // 
@@ -258,6 +261,7 @@
             this.btSaveOutcome.TabIndex = 0;
             this.btSaveOutcome.Text = "Save";
             this.btSaveOutcome.UseVisualStyleBackColor = true;
+            this.btSaveOutcome.Click += new System.EventHandler(this.BtSaveOutcome_Click);
             // 
             // tabControl1
             // 
@@ -353,6 +357,7 @@
             this.btSaveNotes.TabIndex = 0;
             this.btSaveNotes.Text = "Save";
             this.btSaveNotes.UseVisualStyleBackColor = true;
+            this.btSaveNotes.Click += new System.EventHandler(this.BtSaveNotes_Click);
             // 
             // tpReferrals
             // 
@@ -423,6 +428,7 @@
             this.btAddReferral.TabIndex = 1;
             this.btAddReferral.Text = "Add";
             this.btAddReferral.UseVisualStyleBackColor = true;
+            this.btAddReferral.Click += new System.EventHandler(this.BtAddReferral_Click);
             // 
             // btSaveReferral
             // 
@@ -436,6 +442,7 @@
             this.btSaveReferral.TabIndex = 0;
             this.btSaveReferral.Text = "Save";
             this.btSaveReferral.UseVisualStyleBackColor = true;
+            this.btSaveReferral.Click += new System.EventHandler(this.BtSaveReferral_Click);
             // 
             // splitContainer1
             // 

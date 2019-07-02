@@ -101,6 +101,8 @@ namespace CustomerRecordsApp
         private void BtAdd_Click(object sender, EventArgs e)
         {
             //TODO: Create and integrate a form to add a new Customer/Client.
+            // TODO: Implement this
+            throw new NotImplementedException();
         }
 
         private void BtUpdate_Click(object sender, EventArgs e)
