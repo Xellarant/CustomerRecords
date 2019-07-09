@@ -164,6 +164,7 @@ namespace CustomerRecordsApp
             if (dgvCustomerData.SelectedRows.Count > 0)
             try
             {
+                // The following fails on datarow.select() results (array of DataRow objects)
                 DataRowView currentRowView = (DataRowView)dgvCustomerData.SelectedRows[0].DataBoundItem;
                 DataRow currentRow = currentRowView.Row;
 
@@ -192,7 +193,21 @@ namespace CustomerRecordsApp
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
             //TODO: make the datasource filter/search function actually work.... >.>
-            // dgvCustomerData.DataSource = customerTable.AsEnumerable().Where(t => t.Table.Columns["FirstName"].ToString().Contains())
+            string value = tbSearch.Text;
+            // take the search string and check each column for the customer table against it.
+            dgvCustomerData.DataSource = customerTable
+                // cannot use LIKE on Customer_ID or DOB because of type issues.
+                // couldn't quite figure out conversion either... the typenames thwarted me.
+                .Select($"FirstName LIKE '*{value}*' " +
+                $"OR MiddleInitial LIKE '%{value}%' " +
+                $"OR LastName LIKE '%{value}%' " +
+                //$"OR DOB LIKE '%{value}%' " +
+                $"OR PhoneNumber LIKE '%{value}%' " +
+                $"OR StreetAddress LIKE '%{value}%' " +
+                $"OR CityName LIKE '%{value}%' " +
+                $"OR StateName LIKE '%{value}%' " +
+                $"OR Zip LIKE '%{value}%' ");
+                // $"OR ISIS_ID LIKE '%{value}%' ");
         }
         #endregion ///////////////      Form Events   /////////////////////////        
     }
