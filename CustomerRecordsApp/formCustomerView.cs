@@ -15,6 +15,7 @@ namespace CustomerRecordsApp
     public partial class formCustomerView : Form
     {
         DataTable customerTable = Customer.getCustomerTable();
+        //DataTable filteredTable = new DataTable();
         Customer currentCustomer = new Customer();
         List<Customer> modifiedCustomers = new List<Customer>();
         public formCustomerView()
@@ -161,12 +162,20 @@ namespace CustomerRecordsApp
 
         private void DgvCustomerData_SelectionChanged(object sender, EventArgs e)
         {
+            DataRow currentRow = null;
             if (dgvCustomerData.SelectedRows.Count > 0)
             try
             {
                 // The following fails on datarow.select() results (array of DataRow objects)
-                DataRowView currentRowView = (DataRowView)dgvCustomerData.SelectedRows[0].DataBoundItem;
-                DataRow currentRow = currentRowView.Row;
+                if (dgvCustomerData.SelectedRows[0].DataBoundItem.GetType() == typeof(DataRowView))
+                {
+                    DataRowView currentRowView = (DataRowView)dgvCustomerData.SelectedRows[0].DataBoundItem;
+                    currentRow = currentRowView.Row;
+                }
+                else if (dgvCustomerData.SelectedRows[0].DataBoundItem.GetType() == typeof(DataRow))
+                    {
+                        currentRow = (DataRow)dgvCustomerData.SelectedRows[0].DataBoundItem;
+                    }
 
                 CustomerRowToObject(currentRow, currentCustomer);
             }
@@ -192,23 +201,42 @@ namespace CustomerRecordsApp
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            //TODO: make the datasource filter/search function actually work.... >.>
-            string value = tbSearch.Text;
-            // take the search string and check each column for the customer table against it.
-            dgvCustomerData.DataSource = customerTable
-                // cannot use LIKE on Customer_ID or DOB because of type issues.
-                // couldn't quite figure out conversion either... the typenames thwarted me.
-                .Select($"FirstName LIKE '*{value}*' " +
-                $"OR MiddleInitial LIKE '%{value}%' " +
-                $"OR LastName LIKE '%{value}%' " +
-                //$"OR DOB LIKE '%{value}%' " +
-                $"OR PhoneNumber LIKE '%{value}%' " +
-                $"OR StreetAddress LIKE '%{value}%' " +
-                $"OR CityName LIKE '%{value}%' " +
-                $"OR StateName LIKE '%{value}%' " +
-                $"OR Zip LIKE '%{value}%' ");
-                // $"OR ISIS_ID LIKE '%{value}%' ");
+            //TODO: make the datasource filter/search function actually work.... >.>            
+
         }
         #endregion ///////////////      Form Events   /////////////////////////        
+
+        private void TbSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Return)
+            {
+                string value = tbSearch.Text;
+                // take the search string and check each column for the customer table against it.            
+
+                //filteredTable.Clear();
+                
+                // nothing bloody works.... why?
+
+                //dgvCustomerData.DataSource = customerTable.DefaultView.RowFilter 
+                //    = $"FirstName LIKE '%{value}%' OR MiddleInitial LIKE '%{value}%' " +
+                //    $"OR LastName LIKE '%{value}%' OR PhoneNumber LIKE '%{value}%' " +
+                //    $"OR StreetAddress LIKE '%{value}%' OR CityName LIKE '%{value}%' " +
+                //    $"OR StateName LIKE '%{value}%' OR Zip LIKE '%{value}%'";
+
+                ////customerTable
+                //// cannot use LIKE on Customer_ID or DOB because of type issues.
+                //// couldn't quite figure out conversion either... the typenames thwarted me.
+                //.Select($"FirstName LIKE '%{value}%' " +
+                //$"OR MiddleInitial LIKE '%{value}%' " +
+                //$"OR LastName LIKE '%{value}%' " +
+                ////$"OR DOB LIKE '%{value}%' " +
+                //$"OR PhoneNumber LIKE '%{value}%' " +
+                //$"OR StreetAddress LIKE '%{value}%' " +
+                //$"OR CityName LIKE '%{value}%' " +
+                //$"OR StateName LIKE '%{value}%' " +
+                //$"OR Zip LIKE '%{value}%' ").CopyToDataTable<DataRow>(filteredTable, LoadOption.OverwriteChanges);
+                //// $"OR ISIS_ID LIKE '%{value}%' ");
+            }
+        }
     }
 }
