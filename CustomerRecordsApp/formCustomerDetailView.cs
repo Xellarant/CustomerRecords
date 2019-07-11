@@ -84,43 +84,78 @@ namespace CustomerRecordsApp
         private void BtSaveNotes_Click(object sender, EventArgs e)
         {
             // TODO: Implement this
-            throw new NotImplementedException();
+            MessageBox.Show(
+                "Sorry! That feature is not yet implemented.",
+                "Not Implemented",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            //throw new NotImplementedException();
         }
 
         private void BtAddReferral_Click(object sender, EventArgs e)
         {
             // TODO: Implement this
-            throw new NotImplementedException();
+            MessageBox.Show(
+                "Sorry! That feature is not yet implemented.",
+                "Not Implemented",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            //throw new NotImplementedException();
         }
 
         private void BtSaveReferral_Click(object sender, EventArgs e)
         {
             // TODO: Implement this
-            throw new NotImplementedException();
+            MessageBox.Show(
+                "Sorry! That feature is not yet implemented.",
+                "Not Implemented",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            //throw new NotImplementedException();
         }
 
         private void BtAddService_Click(object sender, EventArgs e)
         {
             // TODO: Implement this
-            throw new NotImplementedException();
+            MessageBox.Show(
+                "Sorry! That feature is not yet implemented.",
+                "Not Implemented",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            //throw new NotImplementedException();
         }
 
         private void BtSaveService_Click(object sender, EventArgs e)
         {
             // TODO: Implement this
-            throw new NotImplementedException();
+            MessageBox.Show(
+                "Sorry! That feature is not yet implemented.",
+                "Not Implemented",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            //throw new NotImplementedException();
         }
 
         private void BtAddOutcome_Click(object sender, EventArgs e)
         {
             // TODO: Implement this
-            throw new NotImplementedException();
+            MessageBox.Show(
+                "Sorry! That feature is not yet implemented.",
+                "Not Implemented",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            //throw new NotImplementedException();
         }
 
         private void BtSaveOutcome_Click(object sender, EventArgs e)
         {
             // TODO: Implement this
-            throw new NotImplementedException();
+            MessageBox.Show(
+                "Sorry! That feature is not yet implemented.",
+                "Not Implemented",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            //throw new NotImplementedException();
         }
     }
 }

@@ -108,7 +108,6 @@
             // 
             // btAdd
             // 
-            this.btAdd.Enabled = false;
             this.btAdd.Location = new System.Drawing.Point(11, 8);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(112, 23);
@@ -156,7 +155,6 @@
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(180, 20);
             this.tbSearch.TabIndex = 7;
-            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbSearch_KeyPress);
             // 
             // lblSearch
@@ -194,7 +192,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "formCustomerView";
             this.Text = "Customer Managemend System";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerData)).EndInit();
             this.panel2.ResumeLayout(false);

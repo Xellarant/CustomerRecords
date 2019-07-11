@@ -37,16 +37,16 @@ namespace CustomerRecordsApp.Data
 
         public static readonly string sqlUpdateCustomer = "UPDATE Customers "
             + "SET "
-            + "FirstName = ISNULL(@FirstName, FirstName)"
-	        + ",MiddleInitial = ISNULL(@MiddleInitial, MiddleInitial)"
-	        + ",LastName = ISNULL(@LastName, LastName)"
-	        + ",DOB = ISNULL(@DOB, DOB)"
-	        + ",PhoneNumber = ISNULL(@PhoneNumber, PhoneNumber)"
-	        + ",StreetAddress = ISNULL(@StreetAddress, StreetAddress)"
-	        + ",CityName = ISNULL(@CityName, CityName)"
-	        + ",StateName = ISNULL(@StateName, StateName)"
-	        + ",Zip = ISNULL(@Zip, Zip)"
-	        + ",ISIS_ID = ISNULL(@ISIS_ID, ISIS_ID)"
+            + "FirstName = IIF(IsNull(@FirstName), FirstName, @FirstName)"
+	        + ",MiddleInitial = IIF(IsNull(@MiddleInitial), MiddleInitial, @MiddleInitial)"
+	        + ",LastName = IIF(IsNull(@LastName), LastName, @LastName)"
+	        + ",DOB = IIF(IsNull(@DOB), DOB, @DOB)"
+	        + ",PhoneNumber = IIF(IsNull(@PhoneNumber), PhoneNumber, @PhoneNumber)"
+	        + ",StreetAddress = IIF(IsNull(@StreetAddress), StreetAddress, @StreetAddress)"
+	        + ",CityName = IIF(IsNull(@CityName), CityName, @CityName)"
+	        + ",StateName = IIF(IsNull(@StateName), StateName, @StateName)"
+	        + ",Zip = IIF(IsNull(@Zip), Zip, @Zip)"
+	        + ",ISIS_ID = IIF(IsNull(@ISIS_ID), ISIS_ID, @ISIS_ID)"
             + " WHERE Customer_ID = @Customer_ID";
 
         public static readonly string sqlAddCustomer = "INSERT INTO "
@@ -74,5 +74,51 @@ namespace CustomerRecordsApp.Data
 
         public static readonly string sqlgetCustomerNotes = "SELECT CustomerNotes_ID, Customer_ID, Notes, NotesDate, "
             + "CreateDate \nFROM CustomerNotes WHERE (Customer_ID = @Customer_ID OR @Customer_ID IS NULL)";
+
+        public static readonly string sqlGetFilteredCustomerList = "SELECT "
+            + "cust.Roster_ID, cust.Customer_ID, cust.FirstName, cust.MiddleInitial, " +
+            "cust.LastName, cust.DOB, crost.DateOfService, crost.Staff, crost.EnrollmentType, " +
+            "cust.StreetAddress, cust.CityName, cust.StateName, cust.Zip, "
+            + "crost.ReferredBy, crost.ReasonForVisit, crost.SubmissionDate, crost.ISIS_ID, "
+            + "crost.SelfCertified, crost.IntakeDate, crost.AgeGroup, crost.PSAExpDate, crost.YouthSchool, "
+            + "crost.Notes, crost.PhoneNumber, crost.Email, crost.PY_ID"
+            + " FROM CustomerRosterDenormalized crost " +
+            "RIGHT JOIN Customers cust ON crost.RosterID = cust.Roster_ID" +
+            " WHERE (cust.Customer_ID = @Customer_ID OR @Customer_ID IS NULL) " +
+            "OR    (cust.Roster_ID = @Roster_ID OR @Roster_ID IS NULL) " +
+            "OR    (cust.FirstName LIKE '*' + @FirstName + '*' OR @FirstName IS NULL) " +
+            "OR    (cust.MiddleInitial LIKE '*' + @MiddleInitial + '*' OR @MiddleInitial IS NULL) " +
+            "OR    (cust.LastName LIKE '*' + @LastName + '*' OR @LastName IS NULL) " +
+            "OR    (cust.DOB LIKE '*' + @DOB + '*' OR @DOB IS NULL) " +
+            "OR    (crost.DateOfService LIKE '*' + @DateOfService + '*' OR @DateOfService IS NULL) " +
+            "OR    (crost.Staff LIKE '*' + @Staff + '*' OR @Staff IS NULL) " +
+            "OR    (crost.EnrollmentType LIKE '*' + @EnrollmentType + '*' OR @EnrollmentType IS NULL) " +
+            "OR    (cust.StreetAddress LIKE '*' + @StreetAddress + '*' OR @StreetAddress IS NULL) " +
+            "OR    (cust.CityName LIKE '*' + @CityName + '*' OR @CityName IS NULL) " +
+            "OR    (cust.StateName LIKE '*' + @StateName + '*' OR @StateName IS NULL) " +
+            "OR    (cust.Zip LIKE '*' + @Zip + '*' OR @Zip IS NULL) " +
+            "OR    (crost.ReferredBy LIKE '*' + @ReferredBy + '*' OR @ReferredBy IS NULL) " +
+            "OR    (crost.ReasonForVisit LIKE '*' + @ReasonForVisit + '*' OR @ReasonForVisit IS NULL) " +
+            "OR    (crost.SubmissionDate LIKE '*' + @SubmissionDate + '*' OR @SubmissionDate IS NULL) " +
+            "OR    (crost.ISIS_ID LIKE '*' + @ISIS_ID + '*' OR @ISIS_ID IS NULL) " +
+            "OR    (crost.SelfCertified LIKE '*' + @SelfCertified + '*' OR @SelfCertified IS NULL) " +
+            "OR    (crost.IntakeDate LIKE '*' + @IntakeDate + '*' OR @IntakeDate IS NULL) " +
+            "OR    (crost.AgeGroup LIKE '*' + @AgeGroup + '*' OR @AgeGroup IS NULL) " +
+            "OR    (crost.PSAExpDate LIKE '*' + @PSAExpDate + '*' OR @PSAExpDate IS NULL) " +
+            "OR    (crost.YouthSchool LIKE '*' + @YouthSchool + '*' OR @YouthSchool IS NULL) " +
+            "OR    (crost.Notes LIKE '*' + @Notes + '*' OR @Notes IS NULL) " +
+            "OR    (crost.PhoneNumber LIKE '*' + @PhoneNumber + '*' OR @PhoneNumber IS NULL) " +
+            "OR    (crost.Email LIKE '*' + @Email + '*' OR @Email IS NULL) " +
+            "OR    (cust.PY_ID = @PY_ID OR @PY_ID IS NULL) ";
+
+        public static readonly string sqlAddCustomerRoster = "INSERT INTO CustomerRosterDenormalized " +
+            "(DateOfService, FirstName, MiddleInitial, LastName, " +
+            "DOB, PhoneNumber, Staff, EnrollmentType, ReasonForVisit, " +
+            "IntakeDate, ISIS_ID, AgeGroup, SelfCertified, PSAExpDate, " +
+            "YouthSchool, Email, Notes) " +
+            "VALUES (@DateOfService, @FirstName, @MiddleInitial, " +
+            "@LastName, @DOB, @PhoneNumber, @Staff, @EnrollmentType, " +
+            "@ReasonForVisit, @IntakeDate, @ISIS_ID, @AgeGroup, " +
+            "@SelfCertified, @PSAExpDate, @YouthSchool, @Email, @Notes);";
     }
 }

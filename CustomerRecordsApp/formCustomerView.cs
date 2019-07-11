@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CustomerRecordsApp.Data.Access;
 using System.Reflection;
+using CustomerRecordsApp.InputForms;
 
 namespace CustomerRecordsApp
 {
@@ -29,6 +30,8 @@ namespace CustomerRecordsApp
             {
                 InitializeComponent();
                 dgvCustomerData.DataSource = customerTable;
+                dgvCustomerData.Columns["Roster_ID"].Visible = false;
+                dgvCustomerData.Columns["PY_ID"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -47,6 +50,8 @@ namespace CustomerRecordsApp
             dgvCustomerData.DataSource = null;
             customerTable = Customer.getCustomerTable();
             dgvCustomerData.DataSource = customerTable;
+            dgvCustomerData.Columns["Roster_ID"].Visible = false;
+            dgvCustomerData.Columns["PY_ID"].Visible = false;
         }
 
         private void CustomerRowToObject(DataRow row, Customer customer)
@@ -93,17 +98,20 @@ namespace CustomerRecordsApp
 
         #region ///////////////      Form Events   /////////////////////////
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //conn.Close();
-            //Console.WriteLine("Connection closed.");
-        }
-
         private void BtAdd_Click(object sender, EventArgs e)
         {
             //TODO: Create and integrate a form to add a new Customer/Client.
-            // TODO: Implement this
-            throw new NotImplementedException();
+            using (formNewCustomer newCustomer = new formNewCustomer())
+            {
+                newCustomer.ShowDialog();
+            }
+            //MessageBox.Show(
+            //    "Not Yet Available",
+            //    "Sorry! That feature has not yet been implemented or is not fully functional.",
+            //    MessageBoxButtons.OK,
+            //    MessageBoxIcon.Information);
+            //// TODO: Implement this
+            //throw new NotImplementedException();
         }
 
         private void BtUpdate_Click(object sender, EventArgs e)
@@ -199,44 +207,22 @@ namespace CustomerRecordsApp
             }            
         }
 
-        private void tbSearch_TextChanged(object sender, EventArgs e)
-        {
-            //TODO: make the datasource filter/search function actually work.... >.>            
-
-        }
-        #endregion ///////////////      Form Events   /////////////////////////        
-
         private void TbSearch_KeyPress(object sender, KeyPressEventArgs e)
-        {
+        {                        
+            // could not get in-memory search to work, so I'm doing a sql search instead.
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Return)
             {
-                string value = tbSearch.Text;
-                // take the search string and check each column for the customer table against it.            
-
-                //filteredTable.Clear();
-                
-                // nothing bloody works.... why?
-
-                //dgvCustomerData.DataSource = customerTable.DefaultView.RowFilter 
-                //    = $"FirstName LIKE '%{value}%' OR MiddleInitial LIKE '%{value}%' " +
-                //    $"OR LastName LIKE '%{value}%' OR PhoneNumber LIKE '%{value}%' " +
-                //    $"OR StreetAddress LIKE '%{value}%' OR CityName LIKE '%{value}%' " +
-                //    $"OR StateName LIKE '%{value}%' OR Zip LIKE '%{value}%'";
-
-                ////customerTable
-                //// cannot use LIKE on Customer_ID or DOB because of type issues.
-                //// couldn't quite figure out conversion either... the typenames thwarted me.
-                //.Select($"FirstName LIKE '%{value}%' " +
-                //$"OR MiddleInitial LIKE '%{value}%' " +
-                //$"OR LastName LIKE '%{value}%' " +
-                ////$"OR DOB LIKE '%{value}%' " +
-                //$"OR PhoneNumber LIKE '%{value}%' " +
-                //$"OR StreetAddress LIKE '%{value}%' " +
-                //$"OR CityName LIKE '%{value}%' " +
-                //$"OR StateName LIKE '%{value}%' " +
-                //$"OR Zip LIKE '%{value}%' ").CopyToDataTable<DataRow>(filteredTable, LoadOption.OverwriteChanges);
-                //// $"OR ISIS_ID LIKE '%{value}%' ");
+                MessageBox.Show(
+                "Sorry! That feature has not yet been implemented or is not fully functional.",
+                "Not Yet Available",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+                //string searchString = tbSearch.Text;
+                //dgvCustomerData.DataSource = CustomerRoster.getFilteredCustomerList(searchString);
             }
         }
+
+        #endregion ///////////////      Form Events   /////////////////////////        
+
     }
 }

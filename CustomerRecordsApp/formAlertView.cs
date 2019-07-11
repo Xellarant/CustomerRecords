@@ -36,16 +36,22 @@ namespace CustomerRecordsApp
         private void BtSave_Click(object sender, EventArgs e)
         {
             // TODO: implement this.
-            throw new NotImplementedException();
+            MessageBox.Show(
+                "Sorry! This feature is not yet available or not fully functional.",
+                "Feature Not Implemented", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Warning);
+            //throw new NotImplementedException();
         }
 
         private void BtAdd_Click(object sender, EventArgs e)
         {
             using (InputForms.formNewAlert newAlertForm = new InputForms.formNewAlert(customer))
             {
-                newAlertForm.ShowDialog();
-                RefreshAlerts();
-            }            
+                newAlertForm.ShowDialog();                
+            }
+            RefreshAlerts();
+            dgvCustomerAlerts.Refresh();
         }
     }
 }

@@ -95,6 +95,7 @@
             this.dgvCustomerAlerts.Location = new System.Drawing.Point(0, 0);
             this.dgvCustomerAlerts.MultiSelect = false;
             this.dgvCustomerAlerts.Name = "dgvCustomerAlerts";
+            this.dgvCustomerAlerts.ReadOnly = true;
             this.dgvCustomerAlerts.Size = new System.Drawing.Size(745, 152);
             this.dgvCustomerAlerts.TabIndex = 0;
             // 
