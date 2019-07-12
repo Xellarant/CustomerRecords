@@ -120,5 +120,8 @@ namespace CustomerRecordsApp.Data
             "@LastName, @DOB, @PhoneNumber, @Staff, @EnrollmentType, " +
             "@ReasonForVisit, @IntakeDate, @ISIS_ID, @AgeGroup, " +
             "@SelfCertified, @PSAExpDate, @YouthSchool, @Email, @Notes);";
+
+        public static readonly string sqlUpdateCustomerNotes = "UPDATE CustomerNotes " +
+            "SET Notes = @Notes, NotesDate = @NotesDate WHERE CustomerNotes_ID = @CustomerNotes_ID";
     }
 }

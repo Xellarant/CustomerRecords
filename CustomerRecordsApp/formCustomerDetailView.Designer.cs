@@ -308,6 +308,7 @@
             this.dgvCustomerNotes.Location = new System.Drawing.Point(0, 0);
             this.dgvCustomerNotes.MultiSelect = false;
             this.dgvCustomerNotes.Name = "dgvCustomerNotes";
+            this.dgvCustomerNotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCustomerNotes.Size = new System.Drawing.Size(759, 128);
             this.dgvCustomerNotes.TabIndex = 0;
             // 
@@ -350,7 +351,6 @@
             this.btSaveNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btSaveNotes.Enabled = false;
             this.btSaveNotes.Location = new System.Drawing.Point(122, 10);
             this.btSaveNotes.Name = "btSaveNotes";
             this.btSaveNotes.Size = new System.Drawing.Size(92, 23);

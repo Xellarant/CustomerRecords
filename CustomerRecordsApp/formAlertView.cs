@@ -25,6 +25,7 @@ namespace CustomerRecordsApp
         private void RefreshAlerts()
         {
             dgvCustomerAlerts.DataSource = null;
+            alertsTable.Clear();
             Customer.getCustomerAlertsList(alertsTable, customer.Customer_ID);
             dgvCustomerAlerts.DataSource = alertsTable;
             dgvCustomerAlerts.Columns["Details"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -50,8 +51,7 @@ namespace CustomerRecordsApp
             {
                 newAlertForm.ShowDialog();                
             }
-            RefreshAlerts();
-            dgvCustomerAlerts.Refresh();
+            RefreshAlerts();            
         }
     }
 }

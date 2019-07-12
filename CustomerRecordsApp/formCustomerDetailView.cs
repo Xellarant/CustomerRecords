@@ -47,7 +47,8 @@ namespace CustomerRecordsApp
 
         private void RefreshReferrals()
         {
-            dgvCustomerReferrals.DataSource = null;            
+            dgvCustomerReferrals.DataSource = null;
+            customerReferralsTable.Clear();
             Customer.getCustomerReferralsList(customerReferralsTable, customerID);
             dgvCustomerReferrals.DataSource = customerReferralsTable;
             dgvCustomerReferrals.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
@@ -74,7 +75,7 @@ namespace CustomerRecordsApp
         private void RefreshNotes()
         {
             dgvCustomerNotes.DataSource = null;
-            //TODO: Reimplement for MS Access equivalent
+            customerNotesTable.Clear();
             Customer.getCustomerNotesList(customerNotesTable, customerID);
             dgvCustomerNotes.DataSource = customerNotesTable;
             dgvCustomerNotes.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
@@ -83,13 +84,49 @@ namespace CustomerRecordsApp
 
         private void BtSaveNotes_Click(object sender, EventArgs e)
         {
-            // TODO: Implement this
-            MessageBox.Show(
-                "Sorry! That feature is not yet implemented.",
-                "Not Implemented",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
-            //throw new NotImplementedException();
+            int notesID;
+            string notes;
+            DateTime notesDate;
+
+            if (dgvCustomerNotes.SelectedRows.Count > 0
+                && Int32.TryParse(dgvCustomerNotes.SelectedRows[0].Cells["CustomerNotes_ID"].Value.ToString(), out notesID))
+            {
+                if (!DateTime.TryParse(dgvCustomerNotes.SelectedRows[0].Cells["NotesDate"].Value.ToString(), out notesDate))
+                {
+                    MessageBox.Show(
+                        "There was an issue capturing the date as entered. Please try again.",
+                        "Invalid Date",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                }
+                try
+                {
+                    notes = dgvCustomerNotes.SelectedRows[0].Cells["Notes"].Value.ToString();
+                    Customer.updateNotes(notesID, notes, notesDate);
+                    MessageBox.Show(
+                        "Successfully updated notes record.",
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        $"There was an issue saving the record to the database!. \n\nException: {ex}",
+                        "Data Access Failure",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    Console.Error.WriteLine($"Error with data access!\n\n{ex}");
+                }
+            }
+                        
+            // TODO: Test this
+            //MessageBox.Show(
+            //    "Sorry! That feature is not yet implemented.",
+            //    "Not Implemented",
+            //    MessageBoxButtons.OK,
+            //    MessageBoxIcon.Warning);
         }
 
         private void BtAddReferral_Click(object sender, EventArgs e)

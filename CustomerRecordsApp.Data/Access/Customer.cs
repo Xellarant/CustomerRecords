@@ -430,6 +430,47 @@ namespace CustomerRecordsApp.Data.Access
         } // end addCustomerNotes
 
         /// <summary>
+        /// Method for updating a particular CustomerNotes record (changing the date or note itself)
+        /// </summary>
+        /// <param name="customerNotesID"></param>
+        /// <param name="notes"></param>
+        /// <param name="notesDate"></param>
+        public static void updateNotes(int customerNotesID, string notes, DateTime notesDate)
+        {
+            string query = Scripts.sqlUpdateCustomerNotes;
+            using (
+                OleDbCommand dbCommand = new OleDbCommand()
+                {
+                    Connection = new OleDbConnection(ConnectionAccess.connString),
+                    CommandType = CommandType.Text,
+                    CommandText = query,
+                    Parameters =
+                        {
+                            new OleDbParameter("@CustomerNotes_ID", OleDbType.Integer),
+                            new OleDbParameter("@Notes", OleDbType.LongVarChar),
+                            new OleDbParameter("@NotesDate", OleDbType.Date) // captures date AND Time.
+                        }
+                }) // end using parenthetical
+            { // begin using scope
+                dbCommand.Parameters[0].Value = customerNotesID;
+                dbCommand.Parameters[1].Value = notes;
+                dbCommand.Parameters[2].Value = notesDate;
+                foreach (OleDbParameter param in dbCommand.Parameters)
+                { // replace ambiguous null values with explicit DBNulls.
+                    if (param.Value == null)
+                    {
+                        param.Value = DBNull.Value;
+                    }
+                }
+                dbCommand.Connection.Open();
+                int rowsAffected = dbCommand.ExecuteNonQuery();
+                dbCommand.Connection.Close();
+                Console.WriteLine($"Rows affected: {rowsAffected}");
+            }
+        } // end updateCustomerNotes
+
+
+        /// <summary>
         /// Method for getting the types of Alerts
         /// </summary>
         /// <param name="dt"></param>
