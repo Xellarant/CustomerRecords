@@ -51,5 +51,15 @@ namespace CustomerRecordsApp.Data
                     .ToString();
             }
         }
+
+        public static string AccessODBCString
+        {
+            get
+            {
+                return ConfigurationManager
+                    .ConnectionStrings["AccessODBC"]
+                    .ToString();
+            }
+        }
     }
 }
