@@ -31,8 +31,7 @@ namespace CustomerRecordsApp
             {
                 InitializeComponent();
                 dgvCustomerData.DataSource = customerList;
-                dgvCustomerData.Columns["Roster_ID"].Visible = false;
-                dgvCustomerData.Columns["PY_ID"].Visible = false;
+                FormatGridView();
             }
             catch (Exception ex)
             {
@@ -46,13 +45,30 @@ namespace CustomerRecordsApp
 
         #region ///////////////      Private Methods   /////////////////////////
 
+        public void FormatGridView()
+        {
+            if (dgvCustomerData.DataSource != null)
+            {
+                dgvCustomerData.Columns["Roster_ID"].Visible = false;
+                dgvCustomerData.Columns["PY_ID"].Visible = false;
+                dgvCustomerData.Columns["Roster_ID"].Visible = false;
+                dgvCustomerData.Columns["PY_ID"].Visible = false;
+                dgvCustomerData.Columns["Customer_ID"].DefaultCellStyle.BackColor = Color.DeepSkyBlue;
+                dgvCustomerData.Columns["DOB"].DefaultCellStyle.BackColor = Color.BlanchedAlmond;
+                dgvCustomerData.Columns["ISIS_ID"].DefaultCellStyle.BackColor = Color.BurlyWood;
+                dgvCustomerData.Columns["EnrollmentType"].DefaultCellStyle.BackColor = Color.CornflowerBlue;
+                dgvCustomerData.Columns["SubmissionDate"].DefaultCellStyle.BackColor = Color.Bisque;
+                dgvCustomerData.Columns["IntakeDate"].DefaultCellStyle.BackColor = Color.LavenderBlush;
+                dgvCustomerData.Columns["Notes"].DefaultCellStyle.BackColor = Color.PaleGreen;
+            }
+        }
+
         public void RefreshCustomers()
         {
             dgvCustomerData.DataSource = null;
             customerList = CustomerRoster.getCustomerList();
             dgvCustomerData.DataSource = customerList;
-            dgvCustomerData.Columns["Roster_ID"].Visible = false;
-            dgvCustomerData.Columns["PY_ID"].Visible = false;
+            FormatGridView();
         }
 
         //private void CustomerRowToObject(DataRow row, Customer customer)
