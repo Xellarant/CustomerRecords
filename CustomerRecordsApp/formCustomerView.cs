@@ -15,10 +15,11 @@ namespace CustomerRecordsApp
 {
     public partial class formCustomerView : Form
     {
-        DataTable customerTable = Customer.getCustomerTable();
+        //DataTable customerTable = Customer.getCustomerTable();
+        List<CustomerRoster> customerList = CustomerRoster.getCustomerList();
         //DataTable filteredTable = new DataTable();
         Customer currentCustomer = new Customer();
-        List<Customer> modifiedCustomers = new List<Customer>();
+        List<CustomerRoster> modifiedCustomers = new List<CustomerRoster>();
         public formCustomerView()
         {
             Initialize();
@@ -29,7 +30,7 @@ namespace CustomerRecordsApp
             try
             {
                 InitializeComponent();
-                dgvCustomerData.DataSource = customerTable;
+                dgvCustomerData.DataSource = customerList;
                 dgvCustomerData.Columns["Roster_ID"].Visible = false;
                 dgvCustomerData.Columns["PY_ID"].Visible = false;
             }
@@ -48,43 +49,43 @@ namespace CustomerRecordsApp
         public void RefreshCustomers()
         {
             dgvCustomerData.DataSource = null;
-            customerTable = Customer.getCustomerTable();
-            dgvCustomerData.DataSource = customerTable;
+            customerList = CustomerRoster.getCustomerList();
+            dgvCustomerData.DataSource = customerList;
             dgvCustomerData.Columns["Roster_ID"].Visible = false;
             dgvCustomerData.Columns["PY_ID"].Visible = false;
         }
 
-        private void CustomerRowToObject(DataRow row, Customer customer)
-        {
-            PropertyInfo[] customerProperties = typeof(Customer).GetProperties();
+        //private void CustomerRowToObject(DataRow row, Customer customer)
+        //{
+        //    PropertyInfo[] customerProperties = typeof(Customer).GetProperties();
 
-            foreach (var property in customerProperties)
-            {
-                var rowVal = row[$"{property.Name}"];
-                if (rowVal.GetType() == typeof(DBNull))
-                {
-                    rowVal = null;
-                }
-                property.SetValue(customer, rowVal);
-            }
-            // The above code should be able to utilize reflection to avoid all the stuff below.
+        //    foreach (var property in customerProperties)
+        //    {
+        //        var rowVal = row[$"{property.Name}"];
+        //        if (rowVal.GetType() == typeof(DBNull))
+        //        {
+        //            rowVal = null;
+        //        }
+        //        property.SetValue(customer, rowVal);
+        //    }
+        //    // The above code should be able to utilize reflection to avoid all the stuff below.
 
-            //customer.Customer_ID = (int?)row["Customer_ID"];
-            //customer.FirstName = row["FirstName"].ToString();
-            //customer.MiddleInitial = row["MiddleInitial"].ToString();
-            //customer.LastName = row["LastName"].ToString();
-            //customer.DOB = (DateTime?)row["DOB"];
-            //customer.PhoneNumber = row["PhoneNumber"].ToString();
-            //customer.StreetAddress = row["StreetAddress"].ToString();
-            //customer.CityName = row["CityName"].ToString();
-            //customer.StateName = row["StateName"].ToString();
-            //customer.Zip = row["Zip"].ToString();
-            //customer.ISIS_ID = (int?)row["ISIS_ID"];
-        }
+        //    //customer.Customer_ID = (int?)row["Customer_ID"];
+        //    //customer.FirstName = row["FirstName"].ToString();
+        //    //customer.MiddleInitial = row["MiddleInitial"].ToString();
+        //    //customer.LastName = row["LastName"].ToString();
+        //    //customer.DOB = (DateTime?)row["DOB"];
+        //    //customer.PhoneNumber = row["PhoneNumber"].ToString();
+        //    //customer.StreetAddress = row["StreetAddress"].ToString();
+        //    //customer.CityName = row["CityName"].ToString();
+        //    //customer.StateName = row["StateName"].ToString();
+        //    //customer.Zip = row["Zip"].ToString();
+        //    //customer.ISIS_ID = (int?)row["ISIS_ID"];
+        //}
         
         private void ClearDirtyRows()
         {
-            foreach (Customer cust in modifiedCustomers)
+            foreach (CustomerRoster cust in modifiedCustomers)
             {
                 DataGridViewRow row = dgvCustomerData.Rows.Cast<DataGridViewRow>() // find the matching gridview row for a given Customer_ID.
                                                 .Where(r => r.Cells["Customer_ID"].Value as int? == cust.Customer_ID)
@@ -116,9 +117,9 @@ namespace CustomerRecordsApp
 
         private void BtUpdate_Click(object sender, EventArgs e)
         {
-            foreach (Customer customer in modifiedCustomers)
+            foreach (CustomerRoster customer in modifiedCustomers)
             {
-                Customer.updateCustomer(customer);
+                CustomerRoster.updateCustomer(customer);
             }
             ClearDirtyRows(); // clears the selection collection and resets rows to default colors.
         }
@@ -144,11 +145,11 @@ namespace CustomerRecordsApp
             if (gridView.IsCurrentCellDirty)
             {
                 gridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
-                DataRowView currentRowView = (DataRowView)gridView.Rows[e.RowIndex].DataBoundItem;
-                DataRow currentRow = currentRowView.Row;
-                Customer modifiedCustomer = new Customer();
-                CustomerRowToObject(currentRow, modifiedCustomer);
-                Customer match = modifiedCustomers.Where(cust => cust.Customer_ID == modifiedCustomer.Customer_ID).FirstOrDefault();
+                //DataRowView currentRowView = (DataRowView)gridView.Rows[e.RowIndex].DataBoundItem;
+                //DataRow currentRow = currentRowView.Row;
+                CustomerRoster modifiedCustomer = (CustomerRoster)gridView.Rows[e.RowIndex].DataBoundItem;
+                //CustomerRowToObject(currentRow, modifiedCustomer);
+                CustomerRoster match = modifiedCustomers.Where(cust => cust.Customer_ID == modifiedCustomer.Customer_ID).FirstOrDefault();
                 if (modifiedCustomers.Contains(match)) // if we captured this customer before, delete the previous snapshot.
                 {
                     modifiedCustomers.Remove(match);
@@ -174,18 +175,21 @@ namespace CustomerRecordsApp
             if (dgvCustomerData.SelectedRows.Count > 0)
             try
             {
-                // The following fails on datarow.select() results (array of DataRow objects)
-                if (dgvCustomerData.SelectedRows[0].DataBoundItem.GetType() == typeof(DataRowView))
+                if (dgvCustomerData.SelectedRows[0].DataBoundItem.GetType() == typeof(CustomerRoster))
                 {
-                    DataRowView currentRowView = (DataRowView)dgvCustomerData.SelectedRows[0].DataBoundItem;
-                    currentRow = currentRowView.Row;
+                    currentCustomer = (CustomerRoster)dgvCustomerData.SelectedRows[0].DataBoundItem;
                 }
-                else if (dgvCustomerData.SelectedRows[0].DataBoundItem.GetType() == typeof(DataRow))
-                    {
-                        currentRow = (DataRow)dgvCustomerData.SelectedRows[0].DataBoundItem;
-                    }
-
-                CustomerRowToObject(currentRow, currentCustomer);
+                // The following fails on datarow.select() results (array of DataRow objects)
+                //else if (dgvCustomerData.SelectedRows[0].DataBoundItem.GetType() == typeof(DataRowView))
+                //{
+                //    DataRowView currentRowView = (DataRowView)dgvCustomerData.SelectedRows[0].DataBoundItem;
+                //    currentRow = currentRowView.Row;
+                //}
+                //else if (dgvCustomerData.SelectedRows[0].DataBoundItem.GetType() == typeof(DataRow))
+                //{
+                //    currentRow = (DataRow)dgvCustomerData.SelectedRows[0].DataBoundItem;
+                //}
+                //CustomerRowToObject(currentRow, currentCustomer);
             }
             catch (Exception ex)
             {
@@ -209,16 +213,35 @@ namespace CustomerRecordsApp
 
         private void TbSearch_KeyPress(object sender, KeyPressEventArgs e)
         {                        
-            // could not get in-memory search to work, so I'm doing a sql search instead.
+            // When user presses Enter in the search box, initiate search/filter.
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Return)
             {
-                MessageBox.Show(
-                "Sorry! That feature has not yet been implemented or is not fully functional.",
-                "Not Yet Available",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
-                //string searchString = tbSearch.Text;
-                //dgvCustomerData.DataSource = CustomerRoster.getFilteredCustomerList(searchString);
+                this.Cursor = Cursors.WaitCursor;
+                string searchText = tbSearch.Text.ToLower();
+                dgvCustomerData.DataSource = customerList
+                    .Where(
+                            c => (c.FirstName ?? "").ToLower().Contains(searchText)
+                            || (c.LastName ?? "").ToLower().Contains(searchText)
+                            || (c.ISIS_ID ?? 0).ToString().ToLower().Contains(searchText)
+                            || (c.CityName ?? "").ToLower().Contains(searchText)
+                            || c.Customer_ID.ToString().ToLower().Contains(searchText)
+                            || c.DateOfService.ToString().ToLower().Contains(searchText)
+                            || (c.DOB ?? DateTime.MinValue).ToString().ToLower().Contains(searchText)
+                            || (c.Email ?? "").ToLower().Contains(searchText)
+                            || (c.EnrollmentType ?? "").ToLower().Contains(searchText)
+                            || c.IntakeDate.ToString().ToLower().Contains(searchText)
+                            || (c.MiddleInitial ?? "").ToLower().Contains(searchText)
+                            || (c.Notes ?? "").ToLower().Contains(searchText)
+                            || (c.PhoneNumber ?? "").ToLower().Contains(searchText)
+                            || c.PSAExpDate.ToString().ToLower().Contains(searchText)
+                            || (c.ReasonForVisit ?? "").ToLower().Contains(searchText)
+                            || (c.StateName ?? "").ToLower().Contains(searchText)
+                            || (c.StreetAddress ?? "").ToLower().Contains(searchText)
+                            || c.SubmissionDate.ToString().ToLower().Contains(searchText)
+                            || (c.YouthSchool ?? "").ToLower().Contains(searchText)
+                            || (c.Zip ?? "").ToLower().Contains(searchText)).ToList();
+
+                this.Cursor = Cursors.Default;
             }
         }
 

@@ -5,33 +5,73 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace CustomerRecordsApp.Data.Access
 {
     public partial class CustomerRoster : Customer
     {
-        #region Properties
-
-        public DateTime DateOfService { get; set; }
-        public string Staff { get; set; }
-        public string EnrollmentType { get; set; }
-        public string ReferredBy { get; set; }
-        public string ReasonForVisit { get; set; }
-        public DateTime SubmissionDate { get; set; }
-        public string SelfCertified { get; set; }
-        public DateTime IntakeDate { get; set; }
-        public string AgeGroup { get; set; }
-        public DateTime PSAExpDate { get; set; }
-        public string YouthSchool { get; set; }
-        public string Notes { get; set; }
-        public string Email { get; set; }
-        public int? PY_ID { get; set; }
-        public int? Roster_ID { get; set; }
-
+        #region Properties        
+        // just said screw it and put all the properties in Customer. 
+        // Not using reflection for the different types anymore(Just Customer), so it should be fine(?)
 
         #endregion End Properties
 
         #region Methods
+        /// <summary>
+        /// Returns a List of CustomerRoster objects (variant of DataTable Method)
+        /// </summary>
+        /// <param name="Customer_ID"></param>
+        /// <returns></returns>
+        public static List<CustomerRoster> getCustomerList(int? Customer_ID = null)
+        {
+            DataTable dt = new DataTable();
+            List<CustomerRoster> customerRosterList = new List<CustomerRoster>();
+            //string query = Scripts.sqlGetCustomerDetails;
+            string query = Scripts.sqlGetCustomerRosterDetails;
+            using (OleDbDataAdapter dataAdapter = new OleDbDataAdapter())
+            {
+                // Create the command and set its properties
+                dataAdapter.SelectCommand = new OleDbCommand();
+                dataAdapter.SelectCommand.Connection = new OleDbConnection(ConnectionAccess.connString);
+                dataAdapter.SelectCommand.CommandType = CommandType.Text;
+                // Assign the SQL to the command object
+                dataAdapter.SelectCommand.CommandText = query;
+                if (Customer_ID != null)
+                {
+                    dataAdapter.SelectCommand.Parameters.AddWithValue("@Customer_ID", Customer_ID);
+                }
+                else
+                {
+                    dataAdapter.SelectCommand.Parameters.AddWithValue("@Customer_ID", DBNull.Value);
+                }
+                // Fill the datatable from adapter
+                try
+                {
+                    dataAdapter.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine($"An Error Occured trying to retrieve the data!.\n\nException: {ex}");
+                }
+            } // end using scope
+            foreach (DataRow row in dt.Rows)
+            {
+                CustomerRoster tempCust = new CustomerRoster();
+                foreach (PropertyInfo property in typeof(CustomerRoster).GetProperties())
+                {
+                    var rowVal = row[$"{property.Name}"];
+                    if (rowVal.GetType() == typeof(DBNull))
+                    {
+                        rowVal = null;
+                    }
+                    property.SetValue(tempCust, rowVal);
+                }
+                customerRosterList.Add(tempCust);
+            }
+            return customerRosterList;
+        }
+
         /// <summary>
         /// Function to do a Customer Search in SQL (for now until in-memory option is figured out).
         /// </summary>
@@ -166,6 +206,22 @@ namespace CustomerRecordsApp.Data.Access
         public string StateName { get; set; }
         public string Zip { get; set; }
         public int? ISIS_ID { get; set; }
+        public DateTime DateOfService { get; set; }
+        public string Staff { get; set; }
+        public string EnrollmentType { get; set; }
+        public string ReferredBy { get; set; }
+        public string ReasonForVisit { get; set; }
+        public DateTime SubmissionDate { get; set; }
+        public string SelfCertified { get; set; }
+        public DateTime IntakeDate { get; set; }
+        public string AgeGroup { get; set; }
+        public DateTime PSAExpDate { get; set; }
+        public string YouthSchool { get; set; }
+        public string Notes { get; set; }
+        public string Email { get; set; }
+        public int? PY_ID { get; set; }
+        public int? Roster_ID { get; set; }
+
         //OleDbConnection conn = new OleDbConnection(ConnectionAccess.connString);
 
         /// <summary>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formCustomerView));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvCustomerData = new System.Windows.Forms.DataGridView();
             this.lblCustomerRecords = new System.Windows.Forms.Label();
@@ -76,14 +77,16 @@
             // 
             // lblCustomerRecords
             // 
-            this.lblCustomerRecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCustomerRecords.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCustomerRecords.AutoSize = true;
             this.lblCustomerRecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomerRecords.Location = new System.Drawing.Point(359, 6);
+            this.lblCustomerRecords.Location = new System.Drawing.Point(359, 4);
             this.lblCustomerRecords.Name = "lblCustomerRecords";
             this.lblCustomerRecords.Size = new System.Drawing.Size(183, 24);
             this.lblCustomerRecords.TabIndex = 1;
             this.lblCustomerRecords.Text = "Customer Records";
+            this.lblCustomerRecords.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btUpdate
             // 
@@ -128,7 +131,8 @@
             // 
             // btRefresh
             // 
-            this.btRefresh.Location = new System.Drawing.Point(10, 62);
+            this.btRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btRefresh.Location = new System.Drawing.Point(10, 44);
             this.btRefresh.Name = "btRefresh";
             this.btRefresh.Size = new System.Drawing.Size(75, 25);
             this.btRefresh.TabIndex = 5;
@@ -139,7 +143,7 @@
             // btViewAlerts
             // 
             this.btViewAlerts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btViewAlerts.Location = new System.Drawing.Point(744, 62);
+            this.btViewAlerts.Location = new System.Drawing.Point(719, 40);
             this.btViewAlerts.Name = "btViewAlerts";
             this.btViewAlerts.Size = new System.Drawing.Size(150, 26);
             this.btViewAlerts.TabIndex = 6;
@@ -149,8 +153,10 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSearch.Location = new System.Drawing.Point(363, 66);
+            this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSearch.BackColor = System.Drawing.SystemColors.Window;
+            this.tbSearch.Location = new System.Drawing.Point(363, 46);
             this.tbSearch.MinimumSize = new System.Drawing.Size(180, 20);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(180, 20);
@@ -159,9 +165,10 @@
             // 
             // lblSearch
             // 
-            this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(310, 68);
+            this.lblSearch.Location = new System.Drawing.Point(310, 48);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(47, 13);
             this.lblSearch.TabIndex = 8;
@@ -171,14 +178,17 @@
             // 
             this.panelTitleBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelTitleBar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panelTitleBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelTitleBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelTitleBar.Controls.Add(this.lblSearch);
             this.panelTitleBar.Controls.Add(this.btViewAlerts);
             this.panelTitleBar.Controls.Add(this.tbSearch);
             this.panelTitleBar.Controls.Add(this.btRefresh);
             this.panelTitleBar.Controls.Add(this.lblCustomerRecords);
-            this.panelTitleBar.Location = new System.Drawing.Point(2, 3);
+            this.panelTitleBar.Location = new System.Drawing.Point(12, 12);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(908, 96);
+            this.panelTitleBar.Size = new System.Drawing.Size(887, 78);
             this.panelTitleBar.TabIndex = 9;
             // 
             // formCustomerView
@@ -190,8 +200,9 @@
             this.Controls.Add(this.lblDoubleClick);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formCustomerView";
-            this.Text = "Customer Managemend System";
+            this.Text = "Customer Management System";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerData)).EndInit();
             this.panel2.ResumeLayout(false);
