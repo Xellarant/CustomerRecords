@@ -41,10 +41,20 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblPYSelector = new System.Windows.Forms.Label();
+            this.cbPYSelector = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerData)).BeginInit();
             this.panel2.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,9 +64,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.dgvCustomerData);
-            this.panel1.Location = new System.Drawing.Point(12, 103);
+            this.panel1.Location = new System.Drawing.Point(12, 117);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(887, 312);
+            this.panel1.Size = new System.Drawing.Size(887, 298);
             this.panel1.TabIndex = 0;
             // 
             // dgvCustomerData
@@ -69,7 +79,7 @@
             this.dgvCustomerData.MultiSelect = false;
             this.dgvCustomerData.Name = "dgvCustomerData";
             this.dgvCustomerData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCustomerData.Size = new System.Drawing.Size(883, 308);
+            this.dgvCustomerData.Size = new System.Drawing.Size(883, 294);
             this.dgvCustomerData.TabIndex = 0;
             this.dgvCustomerData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerData_CellDoubleClick);
             this.dgvCustomerData.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerData_CellLeave);
@@ -132,7 +142,7 @@
             // btRefresh
             // 
             this.btRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btRefresh.Location = new System.Drawing.Point(10, 44);
+            this.btRefresh.Location = new System.Drawing.Point(13, 46);
             this.btRefresh.Name = "btRefresh";
             this.btRefresh.Size = new System.Drawing.Size(75, 25);
             this.btRefresh.TabIndex = 5;
@@ -143,7 +153,7 @@
             // btViewAlerts
             // 
             this.btViewAlerts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btViewAlerts.Location = new System.Drawing.Point(719, 40);
+            this.btViewAlerts.Location = new System.Drawing.Point(719, 46);
             this.btViewAlerts.Name = "btViewAlerts";
             this.btViewAlerts.Size = new System.Drawing.Size(150, 26);
             this.btViewAlerts.TabIndex = 6;
@@ -156,7 +166,7 @@
             this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSearch.BackColor = System.Drawing.SystemColors.Window;
-            this.tbSearch.Location = new System.Drawing.Point(363, 46);
+            this.tbSearch.Location = new System.Drawing.Point(495, 53);
             this.tbSearch.MinimumSize = new System.Drawing.Size(180, 20);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(180, 20);
@@ -168,7 +178,7 @@
             this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(310, 48);
+            this.lblSearch.Location = new System.Drawing.Point(442, 55);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(47, 13);
             this.lblSearch.TabIndex = 8;
@@ -181,15 +191,92 @@
             this.panelTitleBar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panelTitleBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panelTitleBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelTitleBar.Controls.Add(this.cbPYSelector);
+            this.panelTitleBar.Controls.Add(this.lblPYSelector);
             this.panelTitleBar.Controls.Add(this.lblSearch);
             this.panelTitleBar.Controls.Add(this.btViewAlerts);
             this.panelTitleBar.Controls.Add(this.tbSearch);
             this.panelTitleBar.Controls.Add(this.btRefresh);
             this.panelTitleBar.Controls.Add(this.lblCustomerRecords);
-            this.panelTitleBar.Location = new System.Drawing.Point(12, 12);
+            this.panelTitleBar.Location = new System.Drawing.Point(12, 27);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(887, 78);
+            this.panelTitleBar.Size = new System.Drawing.Size(887, 84);
             this.panelTitleBar.TabIndex = 9;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.toolsToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(911, 24);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.OptionsToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
+            // lblPYSelector
+            // 
+            this.lblPYSelector.AutoSize = true;
+            this.lblPYSelector.Location = new System.Drawing.Point(144, 56);
+            this.lblPYSelector.Name = "lblPYSelector";
+            this.lblPYSelector.Size = new System.Drawing.Size(83, 13);
+            this.lblPYSelector.TabIndex = 9;
+            this.lblPYSelector.Text = "Show for PY ID:";
+            // 
+            // cbPYSelector
+            // 
+            this.cbPYSelector.FormattingEnabled = true;
+            this.cbPYSelector.Location = new System.Drawing.Point(242, 52);
+            this.cbPYSelector.Name = "cbPYSelector";
+            this.cbPYSelector.Size = new System.Drawing.Size(121, 21);
+            this.cbPYSelector.TabIndex = 10;
+            this.cbPYSelector.SelectedIndexChanged += new System.EventHandler(this.cbPYSelector_SelectedIndexChanged);
             // 
             // formCustomerView
             // 
@@ -200,7 +287,9 @@
             this.Controls.Add(this.lblDoubleClick);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "formCustomerView";
             this.Text = "Customer Management System";
             this.panel1.ResumeLayout(false);
@@ -208,6 +297,8 @@
             this.panel2.ResumeLayout(false);
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,6 +318,15 @@
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Panel panelTitleBar;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbPYSelector;
+        private System.Windows.Forms.Label lblPYSelector;
     }
 }
 

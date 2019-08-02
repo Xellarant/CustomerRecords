@@ -51,8 +51,6 @@ namespace CustomerRecordsApp
             {
                 dgvCustomerData.Columns["Roster_ID"].Visible = false;
                 dgvCustomerData.Columns["PY_ID"].Visible = false;
-                dgvCustomerData.Columns["Roster_ID"].Visible = false;
-                dgvCustomerData.Columns["PY_ID"].Visible = false;
                 dgvCustomerData.Columns["Customer_ID"].DefaultCellStyle.BackColor = Color.DeepSkyBlue;
                 dgvCustomerData.Columns["DOB"].DefaultCellStyle.BackColor = Color.BlanchedAlmond;
                 dgvCustomerData.Columns["ISIS_ID"].DefaultCellStyle.BackColor = Color.BurlyWood;
@@ -260,6 +258,36 @@ namespace CustomerRecordsApp
 
                 this.Cursor = Cursors.Default;
             }
+        }
+
+        private void OptionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //TODO: Implement this. (Information Window)
+            MessageBox.Show(
+                "Sorry! This feature is not yet available or not fully functional.",
+                "Feature Not Implemented",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+        }
+
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //TODO: Implement This. (Configuration Menu)
+            MessageBox.Show(
+                "Sorry! This feature is not yet available or not fully functional.",
+                "Feature Not Implemented",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cbPYSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //TODO: IMPLEMENT THIS!!!!!
         }
 
         #endregion ///////////////      Form Events   /////////////////////////        
