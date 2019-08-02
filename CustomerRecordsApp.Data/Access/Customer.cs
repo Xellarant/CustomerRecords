@@ -311,22 +311,23 @@ namespace CustomerRecordsApp.Data.Access
                     CommandType = CommandType.Text,
                     CommandText = query,
                     Parameters =
-                        {
-                            new OleDbParameter("@Customer_ID", cust.Customer_ID),
+                        {                            
                             new OleDbParameter("@FirstName", cust.FirstName),
                             new OleDbParameter("@MiddleInitial", cust.MiddleInitial),
                             new OleDbParameter("@LastName", cust.LastName),
-                            new OleDbParameter("@DOB", cust.DOB),
+                            new OleDbParameter("@DOB", OleDbType.Date),
                             new OleDbParameter("@PhoneNumber", cust.PhoneNumber),
                             new OleDbParameter("@StreetAddress", cust.StreetAddress),
                             new OleDbParameter("@CityName", cust.CityName),
                             new OleDbParameter("@StateName", cust.StateName),
                             new OleDbParameter("@Zip", cust.Zip),
-                            new OleDbParameter("@ISIS_ID", cust.ISIS_ID)
+                            new OleDbParameter("@ISIS_ID", cust.ISIS_ID),
+                            new OleDbParameter("@Customer_ID", cust.Customer_ID)
                         }
                 }) // end using parenthetical
             { // begin using scope
-                foreach(OleDbParameter param in dbCommand.Parameters)
+                dbCommand.Parameters[3].Value = cust.DOB;
+                foreach (OleDbParameter param in dbCommand.Parameters)
                 {
                     if (param.Value == null)
                     {
@@ -502,15 +503,15 @@ namespace CustomerRecordsApp.Data.Access
                     CommandText = query,
                     Parameters =
                         {
-                            new OleDbParameter("@CustomerNotes_ID", OleDbType.Integer),
                             new OleDbParameter("@Notes", OleDbType.LongVarChar),
-                            new OleDbParameter("@NotesDate", OleDbType.Date) // captures date AND Time.
+                            new OleDbParameter("@NotesDate", OleDbType.Date), // captures date AND Time.
+                            new OleDbParameter("@CustomerNotes_ID", OleDbType.Integer)
                         }
                 }) // end using parenthetical
-            { // begin using scope
-                dbCommand.Parameters[0].Value = customerNotesID;
-                dbCommand.Parameters[1].Value = notes;
-                dbCommand.Parameters[2].Value = notesDate;
+            { // begin using scope                
+                dbCommand.Parameters[0].Value = notes;
+                dbCommand.Parameters[1].Value = notesDate;
+                dbCommand.Parameters[2].Value = customerNotesID;
                 foreach (OleDbParameter param in dbCommand.Parameters)
                 { // replace ambiguous null values with explicit DBNulls.
                     if (param.Value == null)

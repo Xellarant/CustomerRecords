@@ -99,17 +99,17 @@ namespace CustomerRecordsApp
         //    //customer.ISIS_ID = (int?)row["ISIS_ID"];
         //}
         
-        private void ClearDirtyRows()
-        {
-            foreach (CustomerRoster cust in modifiedCustomers)
-            {
-                DataGridViewRow row = dgvCustomerData.Rows.Cast<DataGridViewRow>() // find the matching gridview row for a given Customer_ID.
-                                                .Where(r => r.Cells["Customer_ID"].Value as int? == cust.Customer_ID)
-                                                .First();
-                row.DefaultCellStyle.BackColor = DefaultBackColor;
-            }
-            modifiedCustomers.Clear();
-        }
+        //private void ClearDirtyRows()
+        //{
+        //    foreach (CustomerRoster cust in modifiedCustomers)
+        //    {
+        //        DataGridViewRow row = dgvCustomerData.Rows.Cast<DataGridViewRow>() // find the matching gridview row for a given Customer_ID.
+        //                                        .Where(r => r.Cells["Customer_ID"].Value as int? == cust.Customer_ID)
+        //                                        .First();
+        //        row.DefaultCellStyle.BackColor = DefaultBackColor;
+        //    }
+        //    modifiedCustomers.Clear();
+        //}
 
         #endregion ///////////////      Private Methods   /////////////////////////
 
@@ -137,7 +137,8 @@ namespace CustomerRecordsApp
             {
                 CustomerRoster.updateCustomer(customer);
             }
-            ClearDirtyRows(); // clears the selection collection and resets rows to default colors.
+            //ClearDirtyRows(); // clears the selection collection and resets rows to default colors.
+            RefreshCustomers();
         }
 
         private void DgvCustomerData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
