@@ -13,24 +13,47 @@ namespace CustomerRecordsApp.InputForms
 {
     public partial class NewNotes : Form
     {
-        int customer_ID;
-        public NewNotes(int Customer_ID)
+        int customer_ID, customerNotes_ID;
+        public NewNotes(int Customer_ID, int CustomerNotesID = 0)
         {
             customer_ID = Customer_ID;
+            customerNotes_ID = CustomerNotesID;
             InitializeComponent();
+            if (customerNotes_ID != 0)
+            {
+                DataTable notesTable = Customer.getNotes(customerNotes_ID);
+                tbNotesBox.Text = notesTable.Rows[0]["Notes"].ToString();
+                dtpNotesDate.Value = (DateTime)notesTable.Rows[0]["NotesDate"];
+            }
         }
 
         private void BtSave_Click(object sender, EventArgs e)
         {
-            try
+            if (customerNotes_ID == 0)
             {
-                Customer.addNotes(customer_ID, tbNotesBox.Text, dtpNotesDate.Value);
-                this.Close();
+                try
+                {
+                    Customer.addNotes(customer_ID, tbNotesBox.Text, dtpNotesDate.Value);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Unable to save Customer Notes!\n\nException: {ex}", "Error saving notes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Unable to save Customer Notes!\n\nException: {ex}", "Error saving notes", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }            
+                try
+                {
+                    Customer.updateNotes(customerNotes_ID, tbNotesBox.Text, dtpNotesDate.Value);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Unable to save Customer Notes!\n\nException: {ex}", "Error saving notes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            
         }
     }
 }

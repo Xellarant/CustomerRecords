@@ -123,5 +123,7 @@ namespace CustomerRecordsApp.Data
 
         public static readonly string sqlUpdateCustomerNotes = "UPDATE CustomerNotes " +
             "SET Notes = @Notes, NotesDate = @NotesDate WHERE CustomerNotes_ID = @CustomerNotes_ID";
+        public static readonly string sqlgetCustomerNotesByID = "SELECT CustomerNotes_ID, Customer_ID, Notes, NotesDate, "
+            + "CreateDate \nFROM CustomerNotes WHERE CustomerNotes_ID = @CustomerNotes_ID";
     }
 }

@@ -15,19 +15,26 @@ C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\obj\Debug\Custome
 C:\Users\Te\source\repos\CustomerRecordsApp\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.formServiceView.resources
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.csprojAssemblyReference.cache
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.formCustomerView.resources
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.formCustomerDetailView.resources
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.formAlertView.resources
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.InputForms.formNewAlert.resources
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.InputForms.formNewCustomer.resources
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.InputForms.NewNotes.resources
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.InputForms.NewReferral.resources
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.MenuForms.About.resources
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.MenuForms.OptionConfig.resources
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.Properties.Resources.resources
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.csproj.GenerateResource.cache
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.csproj.CoreCompileInputs.cache
-C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.csproj.CopyComplete
-C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.formCustomerDetailView.resources
-C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.InputForms.NewNotes.resources
-C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.formAlertView.resources
-C:\Source\Repos\CustomerRecords\CustomerRecordsApp\bin\Debug\CustomerRecordsApp.Data.dll
-C:\Source\Repos\CustomerRecords\CustomerRecordsApp\bin\Debug\CustomerRecordsApp.Data.pdb
-C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.InputForms.formNewCustomer.resources
-C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.InputForms.formNewAlert.resources
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\bin\Debug\NEW CMS.exe.config
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\bin\Debug\NEW CMS.exe
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\bin\Debug\NEW CMS.pdb
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\bin\Debug\CustomerRecordsApp.Data.dll
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\bin\Debug\CustomerRecordsApp.Data.pdb
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\CustomerRecordsApp.csproj.CopyComplete
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\NEW CMS.exe
 C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\NEW CMS.pdb
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\bin\Debug\NEW CMS.exe.manifest
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\bin\Debug\NEW CMS.application
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\NEW CMS.exe.manifest
+C:\Source\Repos\CustomerRecords\CustomerRecordsApp\obj\Debug\NEW CMS.application

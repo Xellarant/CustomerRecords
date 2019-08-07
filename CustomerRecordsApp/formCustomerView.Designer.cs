@@ -41,15 +41,15 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.cbPYSelector = new System.Windows.Forms.ComboBox();
+            this.lblPYSelector = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblPYSelector = new System.Windows.Forms.Label();
-            this.cbPYSelector = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerData)).BeginInit();
             this.panel2.SuspendLayout();
@@ -83,6 +83,7 @@
             this.dgvCustomerData.TabIndex = 0;
             this.dgvCustomerData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerData_CellDoubleClick);
             this.dgvCustomerData.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerData_CellLeave);
+            this.dgvCustomerData.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCustomerData_ColumnHeaderMouseClick);
             this.dgvCustomerData.SelectionChanged += new System.EventHandler(this.DgvCustomerData_SelectionChanged);
             // 
             // lblCustomerRecords
@@ -203,6 +204,26 @@
             this.panelTitleBar.Size = new System.Drawing.Size(887, 84);
             this.panelTitleBar.TabIndex = 9;
             // 
+            // cbPYSelector
+            // 
+            this.cbPYSelector.FormattingEnabled = true;
+            this.cbPYSelector.Location = new System.Drawing.Point(242, 52);
+            this.cbPYSelector.Name = "cbPYSelector";
+            this.cbPYSelector.Size = new System.Drawing.Size(121, 21);
+            this.cbPYSelector.TabIndex = 10;
+            this.cbPYSelector.Visible = false;
+            this.cbPYSelector.SelectedIndexChanged += new System.EventHandler(this.cbPYSelector_SelectedIndexChanged);
+            // 
+            // lblPYSelector
+            // 
+            this.lblPYSelector.AutoSize = true;
+            this.lblPYSelector.Location = new System.Drawing.Point(144, 56);
+            this.lblPYSelector.Name = "lblPYSelector";
+            this.lblPYSelector.Size = new System.Drawing.Size(83, 13);
+            this.lblPYSelector.TabIndex = 9;
+            this.lblPYSelector.Text = "Show for PY ID:";
+            this.lblPYSelector.Visible = false;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -215,6 +236,21 @@
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -226,7 +262,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.optionsToolStripMenuItem.Text = "Options";
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.OptionsToolStripMenuItem_Click);
             // 
@@ -241,42 +277,9 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
-            // 
-            // lblPYSelector
-            // 
-            this.lblPYSelector.AutoSize = true;
-            this.lblPYSelector.Location = new System.Drawing.Point(144, 56);
-            this.lblPYSelector.Name = "lblPYSelector";
-            this.lblPYSelector.Size = new System.Drawing.Size(83, 13);
-            this.lblPYSelector.TabIndex = 9;
-            this.lblPYSelector.Text = "Show for PY ID:";
-            // 
-            // cbPYSelector
-            // 
-            this.cbPYSelector.FormattingEnabled = true;
-            this.cbPYSelector.Location = new System.Drawing.Point(242, 52);
-            this.cbPYSelector.Name = "cbPYSelector";
-            this.cbPYSelector.Size = new System.Drawing.Size(121, 21);
-            this.cbPYSelector.TabIndex = 10;
-            this.cbPYSelector.SelectedIndexChanged += new System.EventHandler(this.cbPYSelector_SelectedIndexChanged);
             // 
             // formCustomerView
             // 

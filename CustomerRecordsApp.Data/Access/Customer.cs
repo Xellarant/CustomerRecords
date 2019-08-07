@@ -445,6 +445,37 @@ namespace CustomerRecordsApp.Data.Access
             }
         } // end addCustomerAlert
 
+        public static DataTable getNotes(int customerNotesID)
+        {
+            DataTable dt = new DataTable();
+            string query = Scripts.sqlgetCustomerNotesByID;
+            using (
+                OleDbCommand dbCommand = new OleDbCommand()
+                {
+                    Connection = new OleDbConnection(ConnectionAccess.connString),
+                    CommandType = CommandType.Text,
+                    CommandText = query,
+                    Parameters =
+                        {
+                            new OleDbParameter("@CustomerNotes_ID", customerNotesID)
+                        }
+                }) // end using parenthetical
+            { // begin using scope
+                using (OleDbDataAdapter dataAdapter = new OleDbDataAdapter(dbCommand))
+                {
+                    try
+                    {
+                        dataAdapter.Fill(dt);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Error.WriteLine($"An Error Occured trying to retrieve the data!.\n\nException: {ex}");
+                    }
+                }
+            }
+            return dt;
+        } // end getCustomerNotes
+
 
         /// <summary>
         /// Adds Notes for a given customer.

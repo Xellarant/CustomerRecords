@@ -194,5 +194,16 @@ namespace CustomerRecordsApp
                 MessageBoxIcon.Warning);
             //throw new NotImplementedException();
         }
+
+        private void DgvCustomerNotes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView gridView = (DataGridView)sender;
+            int customerNotesID = (int)gridView.Rows[e.RowIndex].Cells["CustomerNotes_ID"].Value;
+            using (NewNotes notesView = new NewNotes(customerID, customerNotesID))
+            {
+                notesView.ShowDialog();
+            }
+            RefreshNotes();
+        }
     }
 }

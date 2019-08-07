@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CustomerRecordsApp.Data.Access;
 using System.Reflection;
 using CustomerRecordsApp.InputForms;
+using CustomerRecordsApp.Data;
 
 namespace CustomerRecordsApp
 {
@@ -186,25 +187,16 @@ namespace CustomerRecordsApp
 
         private void DgvCustomerData_SelectionChanged(object sender, EventArgs e)
         {
-            DataRow currentRow = null;
+            // make sure the selected collection is populated first
             if (dgvCustomerData.SelectedRows.Count > 0)
             try
             {
                 if (dgvCustomerData.SelectedRows[0].DataBoundItem.GetType() == typeof(CustomerRoster))
-                {
+                { // make sure the item can be cast as a CustomerRoster object. Then do so and record it.
                     currentCustomer = (CustomerRoster)dgvCustomerData.SelectedRows[0].DataBoundItem;
+                        // currentCustomer is a local variable of the form.
                 }
-                // The following fails on datarow.select() results (array of DataRow objects)
-                //else if (dgvCustomerData.SelectedRows[0].DataBoundItem.GetType() == typeof(DataRowView))
-                //{
-                //    DataRowView currentRowView = (DataRowView)dgvCustomerData.SelectedRows[0].DataBoundItem;
-                //    currentRow = currentRowView.Row;
-                //}
-                //else if (dgvCustomerData.SelectedRows[0].DataBoundItem.GetType() == typeof(DataRow))
-                //{
-                //    currentRow = (DataRow)dgvCustomerData.SelectedRows[0].DataBoundItem;
-                //}
-                //CustomerRowToObject(currentRow, currentCustomer);
+          
             }
             catch (Exception ex)
             {
@@ -287,10 +279,16 @@ namespace CustomerRecordsApp
 
         private void cbPYSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //TODO: IMPLEMENT THIS!!!!!
+            //TODO: IMPLEMENT THIS!!!!! PY Not Currently Filtered.
         }
 
         #endregion ///////////////      Form Events   /////////////////////////        
 
+        private void DgvCustomerData_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //TODO: re-implement this for a List-Bound DGV.
+            //DataGridView gridView = (DataGridView)sender;
+            //gridView.Sort(gridView.Columns[e.ColumnIndex], ListSortDirection.Ascending);
+        }
     }
 }

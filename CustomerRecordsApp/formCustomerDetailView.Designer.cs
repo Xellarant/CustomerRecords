@@ -98,6 +98,7 @@
             this.btAddService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btAddService.Enabled = false;
             this.btAddService.Location = new System.Drawing.Point(21, 10);
             this.btAddService.Name = "btAddService";
             this.btAddService.Size = new System.Drawing.Size(95, 23);
@@ -111,6 +112,7 @@
             this.btSaveService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btSaveService.Enabled = false;
             this.btSaveService.Location = new System.Drawing.Point(122, 10);
             this.btSaveService.Name = "btSaveService";
             this.btSaveService.Size = new System.Drawing.Size(92, 23);
@@ -311,6 +313,7 @@
             this.dgvCustomerNotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCustomerNotes.Size = new System.Drawing.Size(759, 128);
             this.dgvCustomerNotes.TabIndex = 0;
+            this.dgvCustomerNotes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomerNotes_CellDoubleClick);
             // 
             // lblProgressNotes
             // 
